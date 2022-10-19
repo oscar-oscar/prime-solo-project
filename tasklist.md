@@ -6,8 +6,8 @@
 - [] Base styling
 
 ### database sql
-- [] create `game` table and insert sample data ( 2 games )
-- [] create `match` table (leave empty for now)
+- [x] create `game` table and insert sample data ( at least 2 games )
+- [x] create `match` table (enter sample data)
 
 ## Base 
 ### Login/Registration
@@ -15,8 +15,9 @@
 - [] style header (test idea here)
 
 ### Dashboard view
-- [] create component
-- [] setup Route in App.js `/` = dashboard (home)
+- [x] create component
+- [x] setup Route in App.js `/dashboard` = dashboard (home)
+- [x] nav to dashboard (may change or remove later)
 - [] server side GET route 
     - [] add route : app.use('/dashboard', dashRouter);
     - [] create router: dashboard.router.js router.get('/')

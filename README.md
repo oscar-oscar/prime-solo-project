@@ -13,13 +13,13 @@ We **STRONGLY** recommend following these instructions carefully. It's a lot, an
 
 Before you get started, make sure you have the following software installed on your computer:
 
-- [Node.js](https://nodejs.org/en/)
-- [PostrgeSQL](https://www.postgresql.org/)
-- [Nodemon](https://nodemon.io/)
+- [x] [Node.js](https://nodejs.org/en/)
+- [x] [PostrgeSQL](https://www.postgresql.org/)
+- [x] [Nodemon](https://nodemon.io/)
 
 ## Create database and table
 
-Create a new database called `prime_app` and create a `user` table:
+- [x] Create a new database called `prime_app` and create a `user` table:
 
 ```SQL
 CREATE TABLE "user" (
@@ -33,7 +33,7 @@ If you would like to name your database something else, you will need to change 
 
 ## Development Setup Instructions
 
-- Run `npm install`
+- [x] Run `npm install`
 - Create a `.env` file at the root of the project and paste this line into the file:
   ```
   SERVER_SESSION_SECRET=superDuperSecret

@@ -18,9 +18,9 @@
 - [x] create component
 - [x] setup Route in App.js `/dashboard` = dashboard (home)
 - [x] nav to dashboard (may change or remove later)
-- [] server side GET route 
-    - [] add route : app.use('/dashboard', dashRouter);
-    - [] create router: dashboard.router.js router.get('/')
+- [x] server side GET route 
+    - [x] add route : app.use('/dashboard', dashRouter);
+    - [x] create router: dashboard.router.js router.get('/')
 - [] client side axios GET
    - [] display sample data on DOM 
    - [] basic styling & layout (rembmer win needs to render green and a loss is red)

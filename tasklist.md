@@ -21,10 +21,10 @@
 - [x] server side GET route 
     - [x] add route : app.use('/dashboard', dashRouter);
     - [x] create router: dashboard.router.js router.get('/')
-- [] client side axios GET
-   - [] display sample data on DOM 
-   - [] basic styling & layout (rembmer win needs to render green and a loss is red)
-   - [] create reducers & saga
+- [x] client side axios GET
+   - [x] display sample data on DOM 
+- [] basic styling & layout (rembmer win needs to render green and a loss is red)
+- [] create reducers & saga
 
 ### Game Details View
 - [] create component

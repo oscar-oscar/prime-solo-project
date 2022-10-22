@@ -27,4 +27,20 @@ router.get('/:id', (req, res) => {
     }
 });
 
+router.delete('/:id', (req, res) => {
+    console.log('in Delete router');
+    if (req.isAuthenticated()){
+        const queryText = `DELETE from "game" WHERE "id" = $1 AND "user_id" = $2`;
+        pool.query(queryText, [req.params.id, req.user.id]).then(() => {
+            res.sendStatus(201);
+            console.log('successful Delete')
+        }).catch((error) => {
+            console.log('something went wrong in router.delete', error);
+            res.sendStatus(500);
+        })
+    }else {
+        res.sendStatus(403); //forbidden, must be logged in
+    }
+});
+
 module.exports = router;

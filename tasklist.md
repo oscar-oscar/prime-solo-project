@@ -5,6 +5,7 @@
 - [] Add Game/Match (singles) (POST, PUT, DELETE)
 - [] Base styling
 
+
 ### database sql
 - [x] create `game` table and insert sample data ( at least 2 games )
 - [x] create `match` table (enter sample data)
@@ -26,7 +27,7 @@
 - [x] create reducers & saga
 - [x] basic styling & layout (rembmer win needs to render green and a loss is red)
 
-### Game Details View
+### Game Details View 
 - [x] create component
 - [x] setup Route in App.jsx (`/details`)
 - [x] server side GET route

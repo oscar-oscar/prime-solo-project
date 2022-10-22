@@ -27,18 +27,37 @@
 - [x] basic styling & layout (rembmer win needs to render green and a loss is red)
 
 ### Game Details View
-- [] create component
-- [] setup Route in App.jsx (`/details`)
-- [] server side GET route
-    - [] add route : app.use('/details', detailsRouter);
-    - [] create router : details.router.js router.get('/details')
-- [] client side axios GET 
-    - [] display on DOM 
+- [x] create component
+- [x] setup Route in App.jsx (`/details`)
+- [x] server side GET route
+    - [x] add route : app.use('/details', detailsRouter);
+    - [x] create router : details.router.js router.get('/details')
+- [x] client side axios GET 
+    - [x] setup saga 
+    - [x] useSelector to pull out game data
+    - [x] dispath FETCH_GAME_DETAILS
+    - [x] display on DOM 
+    - [] DELETE Game in Details view
+    - [] DELETE Note in Details view
     - [] basic styling & layout (a view for a win and view for a loss)
-    - [] setup saga & reducers 
+
+### Log Game View
+- [] create component
+- [] Log Game Form
+    - [] create inputs  (score date, location, partner, opponent(s))
+    - [] text field for game notes
+- [] client side POST 
+    - [] setup saga 
+    - [] history.push to `/success`
+- [] server side POST
+    - [] create route : `app.use('/lognewgame', newGameRouter)`; 
+    - [] create router `newGame.router.js`
+- [] EDIT functionality...
+
+
+    
 
 ## Stretch
-- [] - in DETAILS VIEW: Delete a match
 - [] - ability to Edit game notes and form
 - [] - log multiple games to equal a match (best 2 of 3)  
 - [] - additonal styling (MUI)

@@ -23,8 +23,8 @@
     - [x] create router: dashboard.router.js router.get('/')
 - [x] client side axios GET
    - [x] display sample data on DOM 
-- [] basic styling & layout (rembmer win needs to render green and a loss is red)
-- [] create reducers & saga
+- [x] create reducers & saga
+- [x] basic styling & layout (rembmer win needs to render green and a loss is red)
 
 ### Game Details View
 - [] create component

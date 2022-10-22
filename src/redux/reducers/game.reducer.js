@@ -9,4 +9,5 @@ const gameList = (state = [], action) => {
     }
 }
 
+
 export default gameList;

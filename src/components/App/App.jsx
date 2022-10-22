@@ -20,6 +20,7 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import Dashboard from '../Dashboard/Dashboard';
+import Details from '../Details/Details';
 
 import './App.css';
 
@@ -112,11 +113,19 @@ function App() {
           </Route>
 
           <ProtectedRoute
-            // logged in shows UserPage else shows LoginPage
+            // logged in shows user's game list aka dashboard else shows LoginPage
             exact
             path="/dashboard"
           >
             <Dashboard />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows UserPage else shows LoginPage
+            exact
+            path="/details/:gameId"
+          >
+            <Details />
           </ProtectedRoute>
 
 

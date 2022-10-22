@@ -60,9 +60,27 @@ router.get('/', (req, res) => {
 /**
  * POST route template
  */
-router.post('/', (req, res) => {
-    // POST route code here
-});
+// router.post('/', (req, res) => {
+//     console.log('/dashboard POST route');
+//     console.log(req.body);
+//     console.log('is authenticated', req.isAuthenticated());
+//     console.log('user', req.user);
+//     if (req.isAuthenticated()) {
+//         const queryText = `INSERT INTO "game" ("score_a", "score_b", "opponent_1", "opponent_2", "played_at", "location", "user_id")
+//       VALUES ($1, $2, $3, $4, $5, $6, $7)`;
+//         pool.query(queryText, [req.body.score_a, req.body.score_b,
+//             req.body.opponent_1, req.body.opponent_2,
+//             req.body.played_at, req.body.location,
+//             req.user.id
+//         ])  .then(() => {
+//                 res.sendStatus(201);
+//             }).catch((e) => {
+//                 res.sendStatus(500);
+//             })
+//     } else {
+//         res.sendStatus(403); //forbidden 
+//     }
+// });
 
 
 

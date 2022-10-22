@@ -44,6 +44,7 @@
 
 ### Log Game View
 - [] create component
+- [] Log Game button in Dashboard view
 - [] Log Game Form
     - [] create inputs  (score date, location, partner, opponent(s))
     - [] text field for game notes
@@ -51,8 +52,8 @@
     - [] setup saga 
     - [] history.push to `/success`
 - [] server side POST
-    - [] create route : `app.use('/lognewgame', newGameRouter)`; 
-    - [] create router `newGame.router.js`
+    - [] create route : `app.use('/log-game', logGameRouter)`; 
+    - [] create router `log-game.router.js`
 - [] EDIT functionality...
 
 

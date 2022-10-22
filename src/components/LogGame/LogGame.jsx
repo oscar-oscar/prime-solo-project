@@ -5,7 +5,7 @@ import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 
-function AddGame(){
+function LogGame(){
     console.log('in AddGame');
 
     return(
@@ -15,4 +15,4 @@ function AddGame(){
     )
 }
 
-export default AddGame;
+export default LogGame;

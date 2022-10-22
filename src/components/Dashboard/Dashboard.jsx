@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import LogGame from '../LogGame/LogGame';
 
 //this is the main page of the app
 //user should see a list of their games played
@@ -42,6 +43,7 @@ function Dashboard() {
     return (
         <div>
             <h3>Game List</h3>
+            <button onClick={() => history.push('/log-game')} className="button">Log Game</button>
             <ul>
                 {gameList.map(game => {
                     return (

@@ -56,17 +56,17 @@ function Dashboard() {
                                 <div><h2>My Partner:{game.partner}</h2></div> : null}
 
                             <div>Played against: {game.opponent_1}</div>
-                            {game.opponent_2 ? 
-                            <div><h2>and {game.opponent_2}</h2></div>:null}
-                                <br />
+                            {game.opponent_2 ?
+                                <div><h2>and {game.opponent_2}</h2></div> : null}
+                            <br />
 
-                                <button onClick={() => seeDetails(game)}>See Details</button>
+                            <button onClick={() => seeDetails(game)}>See Details</button>
 
 
-                            </li>
+                        </li>
                     )
                 })}
-                        </ul>
+            </ul>
         </div>
     )
 

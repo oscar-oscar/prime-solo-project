@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
     console.log('req.user:', req.user);
     //if user is logged in run query
     if (req.isAuthenticated()) {
-        let queryText = `SELECT * FROM "game" WHERE "user_id" =$1 ORDER BY "played_at" DESC`;
+        let queryText = `SELECT * FROM "game" WHERE "user_id" =$1 ORDER BY "date" DESC`;
         //current user logged in id
         pool.query(queryText, [req.user.id])
             .then(result => {

@@ -9,26 +9,27 @@ import DatePicker from "react-date-picker";
 
 function LogGame() {
     console.log('in AddGame');
+
     const history = useHistory();
+    const dispatch = useDispatch();
+
     const scoreA = useSelector(store => store.score_a);
     const scoreB = useSelector(store => store.score_b);
     const partner = useSelector(store => store.partner);
-    const opponentOne = useSelector(store => store.opponent_1)
-    const opponentTwo = useSelector(store => store.opponent_2)
+    const opponentOne = useSelector(store => store.opponent_1);
+    const opponentTwo = useSelector(store => store.opponent_2);
+    const date = useSelector(store => store.date);
+    const location = useSelector(store => store.location);
 
 
-    const dispatch = useDispatch();
-
-
-
-    const [newGame, setNewGame] = useState('testing');
+    const [newGame, setNewGame] = useState([]);
     const [myScore, setMyscore] = useState('');
     const [oppScore, setOppScore] = useState('');
     const [partnerName, setPartnerName] = useState('');
-    const [opponentOneName, setopponentOneName] = useState('');
+    const [opponentOneName, setOpponentOneName] = useState('');
     const [opponentTwoName, setOpponentTwoName] = useState('');
-
-
+    const [courtlocation, setCourtlocation] = useState('');
+    const [gameDate, setGameDate] = useState('');
 
 
 
@@ -36,30 +37,32 @@ function LogGame() {
     const handleSubmit = (e) => {
         e.preventDefault();//prevent reload
         dispatch({
-            type: 'SET_GAME',
+            type: 'LOG_GAME',
             payload: {
-                date: newGame.date,
-                type: newGame.type,
-                partner: newGame.partner,
-                opponentOne: newGame.opponent_1,
-                opponentTwo: newGame.opponent_2,
-                scoreA: newGame.score_a,
-                scoreB: newGame.score_b
+                score_a: myScore,
+                score_b: oppScore,
+                opponent_1: opponentOneName,
+                opponent_2: opponentTwoName,
+                date: gameDate,
+                location: courtlocation,
+                
             }
         })
-        history.pushState('/dashboard'); //push this to success page after testing
+        history.push('/dashboard'); //push this to success page after testing
     }
 
 
 
     return (
-        <form >
-            <h2>FORM TEST</h2>
+        <form onSubmit={handleSubmit}>
+            <h2>Add Game Info</h2>
 
             <label>Date of Game</label>
             <input
                 type="date"
                 required
+                value={gameDate}
+                onChange={(event) => setGameDate(event.target.value)}  
             />
 
             <label>Match Type</label>
@@ -73,21 +76,19 @@ function LogGame() {
                 type="text"
                 placeholder="Enter My Partner's Name"
                 name="myScore"
-                value={partner}
-                onChange={(event) =>
-                    setPartnerName({ ...setPartnerName(event.target.value) })
-                }
+                value={partnerName}
+                onChange={(event) => setPartnerName(event.target.value)}  
+                
             />
 
             <label>Opponent's Name</label>
             <input
                 type="text"
+                required
                 placeholder="Enter Oppoenent's Name"
                 name="oppenent"
-                value={partner}
-                onChange={(event) =>
-                    setopponentOneName({ ...setopponentOneName(event.target.value) })
-                }
+                value={opponentOneName}
+                onChange={(event) => setOpponentOneName(event.target.value)}  
             />
 
             <label>Second Opponent's Name</label>
@@ -95,15 +96,15 @@ function LogGame() {
                 type="text"
                 placeholder="Enter Second Oppoenent's Name"
                 name="oppenent-2"
-                value={partner}
-                onChange={(event) =>
-                    setOpponentTwoName({ ...setOpponentTwoName(event.target.value) })
-                }
+                value={opponentTwoName}
+                onChange={(event) => setOpponentTwoName(event.target.value)}  
+                
             />
 
             <label>My Score</label>
             <input
-                type="number"
+                type="text"
+                required
                 placeholder="Enter My Score"
                 name="myScore"
                 value={myScore}
@@ -116,7 +117,8 @@ function LogGame() {
 
             <label>Opp Score</label>
             <input
-                type="number"
+                type="text"
+                required
                 placeholder="Enter Opponents Score"
                 name="oppScore"
                 value={oppScore}
@@ -125,8 +127,18 @@ function LogGame() {
                     setOppScore(event.target.value.slice(0, limit));
                 }}
             />
+            <label>Location</label>
+            <input
+                type="text"
+                required
+                placeholder="Enter city or court name"
+                name="location"
+                value={courtlocation}
+                onChange={(event) => setCourtlocation(event.target.value)}  
+            />
             <button>Add Game</button>
         </form>
+        
     )
 }
 

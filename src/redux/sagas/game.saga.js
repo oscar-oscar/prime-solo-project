@@ -22,10 +22,12 @@ function* fetchGameDetails(action){
 }
 
 function* logGame(action){
+    console.log('in *logGame');
     try{
         yield axios.post('/log-game', action.payload);
-        action.clearForm(); //clears form after success
-        //after posting
+        console.log('in POST')
+        // action.clearForm(); //clears form after success
+        // //after posting
         yield put({ type: 'FETCH_GAME_DETAILS' });
     } catch(error){
         console.log('error in POST axios * logNewGame', error);

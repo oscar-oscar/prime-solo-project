@@ -3,8 +3,8 @@
 
 const logGame = (state = {}, action) => {
     switch (action.type) {
-        //listen for SET GAME 
-        case 'SET_GAME':
+        //listen for LOG GAME 
+        case 'LOG_GAME':
             return action.payload;
         default:
             return state;

@@ -6,7 +6,7 @@ const router = express.Router();
  * POST route to log a new game
  */
  router.post('/', (req, res) => {
-    console.log('/dashboard POST route');
+    console.log('/log-game POST route');
     console.log(req.body);
     console.log('is authenticated', req.isAuthenticated());
     console.log('user', req.user);

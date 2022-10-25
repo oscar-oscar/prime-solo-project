@@ -38,7 +38,7 @@ function Dashboard() {
     useEffect(() => {
         getGames();
     }, []);
-
+ 
 
     return (
         <div>
@@ -51,8 +51,10 @@ function Dashboard() {
                             <div>Game Date: {game.played_at}</div><br />
                             <div>My Score: {game.score_a} Opponent : {game.score_b}</div>
                             <div>Location: {game.location}</div>
-                            <div>Game Notes: {game.notes}</div>
-                            <div>My Partner: {game.partner}</div>
+                            <div>Game Notes:  {game.notes}</div>
+                            {game.partner ? 
+                            <div><h2>My Partner:{game.partner}</h2></div>: null }
+
                             <div>Played against: {game.opponent_1} and {game.opponent_2}</div><br />
                             <button onClick={() => seeDetails(game)}>See Details</button>
 

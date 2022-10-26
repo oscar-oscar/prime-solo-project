@@ -47,38 +47,33 @@ function Dashboard() {
 
     return (
         <div className="game-list">
-            <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-                <Grid item xs={12} >
+            <div>
+                <div className="game-list-h2"><h2>Game List</h2></div>
+            </div>
+            <Button sx={{padding:1 , width:1}} color="primary" variant="contained" onClick={() => history.push('/add')} className="button">Log New Game</Button>
+            <ul>
+                {gameList.map(game => {
+                    return (
+                        <li key={game.id}>
+                            <div>Game Date: {game.date} </div><br />
+                            <div>My Score: {game.score_a} Opponent : {game.score_b}</div>
+                            <div>Location: {game.location}</div>
 
-                    <div>
-                        <div className="game-list-h2"><h2>Game List</h2></div>
-                    </div>
-                    <Button sx={{ margin: 2 }} color="primary" variant="contained" onClick={() => history.push('/add')} className="button">Log New Game</Button>
-                    <ul>
-                        {gameList.map(game => {
-                            return (
-                                <li key={game.id}>
-                                    <div>Game Date: {game.date} </div><br />
-                                    <div>My Score: {game.score_a} Opponent : {game.score_b}</div>
-                                    <div>Location: {game.location}</div>
+                            {game.partner ?
+                                <div>My Partner: {game.partner}</div> : null}
 
-                                    {game.partner ?
-                                        <div>My Partner: {game.partner}</div> : null}
+                            <div>Played against: {game.opponent_1}</div>
+                            {game.opponent_2 ?
+                                <div> and {game.opponent_2} </div> : null}
+                            <br />
 
-                                    <div>Played against: {game.opponent_1}</div>
-                                    {game.opponent_2 ?
-                                        <div> and {game.opponent_2} </div> : null}
-                                    <br />
-
-                                    <button onClick={() => seeDetails(game)}>See Details</button>
+                            <Button sx={{ margin: 2 }} variant="outlined" size="small" onClick={() => seeDetails(game)}>See Details</Button>
 
 
-                                </li>
-                            )
-                        })}
-                    </ul>
-                </Grid>
-            </Grid>
+                        </li>
+                    )
+                })}
+            </ul>
         </div>
     )
 

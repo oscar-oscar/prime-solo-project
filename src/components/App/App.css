@@ -5,7 +5,7 @@ body,
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Rubik', sans-serif;
   margin: 0px;
 }
 
@@ -22,6 +22,7 @@ Container
   padding: 20px;
 }
 
+
 /* --------------------------------------------------------------------------------
 Button
 -------------------------------------------------------------------------------- */
@@ -29,13 +30,11 @@ Button
 .btn {
   display: inline-block;
   padding: 10px 20px;
-  border-color: #014041;
   border-width: 1px 1px 3px;
-  border-radius: 4px;
-  background-color: #00acb0;
+  border-radius: 2px;
+  background-color: #92D1EA;
   color: #f8f8f8;
   font-size: 1.1rem;
-  outline: 0;
   cursor: pointer;
 }
 
@@ -55,7 +54,7 @@ Button
 }
 
 .btn:hover {
-  background-color: #008183;
+  background-color: #AFEF4B;
   text-decoration: none;
 }
 
@@ -72,8 +71,15 @@ Button
 
 .btn_asLink:hover {
   background-color: transparent;
-  border-color: #008183;
   color: #008183;
+}
+
+.game-list{
+  margin: 20px;
+}
+
+.game-list-h2{
+  font-family: S;
 }
 
 /* --------------------------------------------------------------------------------
@@ -101,7 +107,6 @@ Form Treatment
   max-width: 100%;
   padding: 25px;
   margin: 0 auto 20px;
-  background-color: #efefef;
   border-radius: 3px;
   box-shadow: 0 1px 2px rgb(0, 0, 0, 0.4);
 }

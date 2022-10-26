@@ -4,6 +4,11 @@ import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import LogGame from '../AddGame/AddGame';
+import Grid2 from '@mui/material/Unstable_Grid2';
+import Button from '@mui/material/Button';
+import Grid from '@mui/material/Grid';
+import './Dashboard.css';
+
 
 //this is the main page of the app
 //user should see a list of their games played
@@ -41,32 +46,39 @@ function Dashboard() {
 
 
     return (
-        <div>
-            <h3>Game List</h3>
-            <button onClick={() => history.push('/add')} className="button">Log Game</button>
-            <ul>
-                {gameList.map(game => {
-                    return (
-                        <li key={game.id}>
-                            <div>Game Date: <h3>{game.date}</h3></div><br />
-                            <div>My Score: {game.score_a} Opponent : {game.score_b}</div>
-                            <div>Location: {game.location}</div>
-                            
-                            {game.partner ?
-                                <div><h2>My Partner:{game.partner}</h2></div> : null}
+        <div className="game-list">
+        <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+            <Grid item xs={12} >
+                
+                    <div><h4>display record here</h4>
+                    <h2 className="game-list-h2">Game List</h2>
+                    </div>
+                    <Button sx={{ margin: 4 }} color="primary" variant="contained" onClick={() => history.push('/add')} className="button">Log New Game</Button>
+                    <ul>
+                        {gameList.map(game => {
+                            return (
+                                <li key={game.id}>
+                                    <div>Game Date: {game.date} </div><br />
+                                    <div>My Score: {game.score_a} Opponent : {game.score_b}</div>
+                                    <div>Location: {game.location}</div>
 
-                            <div>Played against: {game.opponent_1}</div>
-                            {game.opponent_2 ?
-                                <div><h2>and {game.opponent_2}</h2></div> : null}
-                            <br />
+                                    {game.partner ?
+                                        <div>My Partner: {game.partner}</div> : null}
 
-                            <button onClick={() => seeDetails(game)}>See Details</button>
+                                    <div>Played against: {game.opponent_1}</div>
+                                    {game.opponent_2 ?
+                                        <div> and {game.opponent_2} </div> : null}
+                                    <br />
+
+                                    <button onClick={() => seeDetails(game)}>See Details</button>
 
 
-                        </li>
-                    )
-                })}
-            </ul>
+                                </li>
+                            )
+                        })}
+                    </ul>
+                </Grid>
+            </Grid>
         </div>
     )
 

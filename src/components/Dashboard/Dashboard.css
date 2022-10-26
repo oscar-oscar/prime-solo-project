@@ -1,0 +1,18 @@
+.logBtn{
+   
+  padding: 10px 20px;
+  margin: 20px;
+  align-items: center;
+}
+
+.game-list-h2 {
+    font-family: 'Silkscreen', 'Courier New', Courier, monospace;
+    text-align: center;
+    font-size: 32px;
+    font-weight: 700;
+    color: #403f3f;
+    padding: 20px;
+    margin: 0px;
+  }
+
+  

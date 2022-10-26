@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
+import Button from '@mui/material/Button';
 
 function Details() {
     console.log('in Details comp');
@@ -42,7 +43,10 @@ function Details() {
             <h2>VS</h2>
             <h3>{gameDetails.opponent_1} &amp; {gameDetails.opponent_2}</h3>
             <h3>Location: {gameDetails.location}</h3>
-            <button  style={{cursor: 'pointer'}} onClick={() => deleteGame(gameDetails.id)}>Delete</button>
+            <Button sx={{ margin: 4 }} color="error" variant="contained" onClick={() => deleteGame(gameDetails.id)}>Delete</Button>
+            <br/>
+            
+            <Button sx={{ margin: 4 }} color="primary" variant="contained" onClick={() => history.push('/dashboard')}>Back</Button>
         </div>
     )
 }

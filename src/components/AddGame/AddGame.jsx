@@ -13,7 +13,6 @@ function AddGame() {
     const history = useHistory();
     const dispatch = useDispatch();
 
-    const [newGame, setNewGame] = useState([]);
     const [myScore, setMyscore] = useState('');
     const [oppScore, setOppScore] = useState('');
     const [partnerName, setPartnerName] = useState('');
@@ -21,7 +20,7 @@ function AddGame() {
     const [opponentTwoName, setOpponentTwoName] = useState('');
     const [courtlocation, setCourtlocation] = useState('');
     const [gameDate, setGameDate] = useState('');
-
+    const [notes, setNotes] = useState('');
 
 
     // will dispatch here
@@ -37,6 +36,7 @@ function AddGame() {
                 score_a: myScore,
                 score_b: oppScore,
                 location: courtlocation,
+                notes: notes
 
             }
         })
@@ -105,7 +105,6 @@ function AddGame() {
                         const limit = 2;
                         setMyscore(event.target.value.slice(0, limit));
                     }}
-
                 />
 
                 <label>Opp Score</label>

@@ -9,7 +9,7 @@ function Nav() {
 
   return (
     <div className="nav">
-      <Link to="/home">
+      <Link to="/dashboard">
         <h2 className="nav-title">Pickletrax</h2>
       </Link>
       <div>
@@ -32,17 +32,17 @@ function Nav() {
               Info Page
             </Link> */}
 
-            <Link className="navLink" to="/dashboard">
+            {/* <Link className="navLink" to="/dashboard">
               Dashboard
-            </Link>
+            </Link> */}
 
             <LogOutButton className="navLink" />
           </>
         )}
 
-        <Link className="navLink" to="/about">
+        {/* <Link className="navLink" to="/about">
           About
-        </Link>
+        </Link> */}
       </div>
     </div>
   );

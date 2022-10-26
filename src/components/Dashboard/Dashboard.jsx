@@ -47,13 +47,13 @@ function Dashboard() {
 
     return (
         <div className="game-list">
-        <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-            <Grid item xs={12} >
-                
-                    <div><h4>display record here</h4>
-                    <h2 className="game-list-h2">Game List</h2>
+            <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+                <Grid item xs={12} >
+
+                    <div>
+                        <div className="game-list-h2"><h2>Game List</h2></div>
                     </div>
-                    <Button sx={{ margin: 4 }} color="primary" variant="contained" onClick={() => history.push('/add')} className="button">Log New Game</Button>
+                    <Button sx={{ margin: 2 }} color="primary" variant="contained" onClick={() => history.push('/add')} className="button">Log New Game</Button>
                     <ul>
                         {gameList.map(game => {
                             return (

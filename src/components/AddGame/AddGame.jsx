@@ -4,7 +4,8 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
-import DatePicker from "react-date-picker";
+import Button from '@mui/material/Button';
+import './AddGame.css';
 
 
 function AddGame() {
@@ -44,9 +45,12 @@ function AddGame() {
     }
 
     return (
-        <div>
+        <div className="game-form">
             <form onSubmit={sumbitForm}>
+                
+                <div class="AddGameH2">
                 <h2>Add Game Info</h2>
+                </div>
 
                 <label>Date of Game</label>
                 <input
@@ -130,8 +134,10 @@ function AddGame() {
                     onChange={(event) => setCourtlocation(event.target.value)}
                 />
                 <input type="submit" />
+                <Button sx={{ margin: 4 }} color="primary" variant="contained" onClick={() => history.push('/dashboard')}>Back</Button>
             </form>
         </div>
+        
     )
 }
 

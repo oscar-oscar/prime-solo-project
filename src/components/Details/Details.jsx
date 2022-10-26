@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import Button from '@mui/material/Button';
+import Stack from '@mui/material/Stack';
 
 function Details() {
     console.log('in Details comp');
@@ -17,17 +18,17 @@ function Details() {
     // const match = useSelector(store => store.selectedMatch)
 
     const deleteGame = (deleteGameId) => {
-        axios.delete(`/details/${deleteGameId}`).then(() =>{
+        axios.delete(`/details/${deleteGameId}`).then(() => {
             console.log('successfull delete')
             history.push('/dashboard');
-            
-        }).catch((e) => {
-          console.log(e);
-          alert('something went wrong in deleteItem');
-        })
-      }
 
-        
+        }).catch((e) => {
+            console.log(e);
+            alert('something went wrong in deleteItem');
+        })
+    }
+
+
 
     useEffect(() => {
         dispatch({ type: 'FETCH_GAME_DETAILS', payload: gameId });
@@ -43,10 +44,11 @@ function Details() {
             <h2>VS</h2>
             <h3>{gameDetails.opponent_1} &amp; {gameDetails.opponent_2}</h3>
             <h3>Location: {gameDetails.location}</h3>
-            <Button sx={{ margin: 4 }} color="error" variant="contained" onClick={() => deleteGame(gameDetails.id)}>Delete</Button>
-            <br/>
-            
-            <Button sx={{ margin: 4 }} color="primary" variant="contained" onClick={() => history.push('/dashboard')}>Back</Button>
+            <br />
+            <Stack spacing={3}>
+                <Button sx={{ padding: 1, width: 1 }} color="primary" variant="contained" onClick={() => history.push('/dashboard')}>Back to Game List</Button>
+                <Button sx={{ padding: 1, width: 1 }} color="error" variant="contained" onClick={() => deleteGame(gameDetails.id)}>Delete This Game</Button>
+            </Stack>
         </div>
     )
 }

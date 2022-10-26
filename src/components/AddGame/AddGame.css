@@ -5,10 +5,14 @@
 .AddGameH2{
     font-family: 'Silkscreen', 'Courier New', Courier, monospace;
     text-align: center;
-    font-size: 18px;
+    font-size: 24px;
     font-weight: 700;
     color: #0e0101;
-    padding: 20px;
+    padding: 10px;
     margin: 0px;
 
+}
+
+.game-form{
+    flex-wrap: wrap;
 }

@@ -13,15 +13,6 @@ function AddGame() {
     const history = useHistory();
     const dispatch = useDispatch();
 
-    // const scoreA = useSelector(store => store.score_a);
-    // const scoreB = useSelector(store => store.score_b);
-    // const partner = useSelector(store => store.partner);
-    // const opponentOne = useSelector(store => store.opponent_1);
-    // const opponentTwo = useSelector(store => store.opponent_2);
-    // const date = useSelector(store => store.date);
-    // const location = useSelector(store => store.location);
-
-
     const [newGame, setNewGame] = useState([]);
     const [myScore, setMyscore] = useState('');
     const [oppScore, setOppScore] = useState('');
@@ -39,7 +30,7 @@ function AddGame() {
         dispatch({
             type: 'ADD_GAME',
             payload: {
-               
+                date: gameDate,
                 partner: partnerName,
                 opponent_1 : opponentOneName,
                 opponent_2 : opponentTwoName,
@@ -47,26 +38,24 @@ function AddGame() {
                 score_b: oppScore,
                 location: courtlocation,
 
-            }, history
+            }
         })
         history.push('/dashboard'); //push this to success page after testing
     }
-
-
 
     return (
         <div>
             <form onSubmit={sumbitForm}>
                 <h2>Add Game Info</h2>
 
-                {/* <label>Date of Game</label>
+                <label>Date of Game</label>
                 <input
                     type="date"
                     required
                     value={gameDate}
                     onChange={(event) => setGameDate(event.target.value)}
                 />
-                <br/> */}
+                <br/>
 
                 {/* <label>Match Type</label>
                 <select>

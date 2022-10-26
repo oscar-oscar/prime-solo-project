@@ -3,7 +3,7 @@ const pool = require('../modules/pool');
 const router = express.Router();
 
 router.get('/:id', (req, res) => {
-    
+
     console.log('/:id GET route');
     console.log('is authenticated?', req.isAuthenticated());
     console.log('user', req.user);
@@ -11,7 +11,7 @@ router.get('/:id', (req, res) => {
 
     if (req.isAuthenticated()) {
         //selects where game matches id passed
-        const query = `SELECT * FROM "game" WHERE "user_id" = $1 AND "id" =$2`;
+        const query = `SELECT * FROM "game" WHERE "user_id" = $1 AND "id" = $2`;
         //passing array = req.params.id
         pool.query(query, [req.user.id, req.params.id]) // game passed
             .then(result => {
@@ -22,14 +22,14 @@ router.get('/:id', (req, res) => {
                 console.log('ERROR getting specific game from server', error)
                 res.sendStatus(500)
             })
-    }else{
+    } else {
         res.sendStatus(403); // 403 forbidden (must log in)
     }
 });
 
 router.delete('/:id', (req, res) => {
     console.log('in Delete router');
-    if (req.isAuthenticated()){
+    if (req.isAuthenticated()) {
         const queryText = `DELETE from "game" WHERE "id" = $1 AND "user_id" = $2`;
         pool.query(queryText, [req.params.id, req.user.id]).then(() => {
             res.sendStatus(201);
@@ -38,7 +38,7 @@ router.delete('/:id', (req, res) => {
             console.log('something went wrong in router.delete', error);
             res.sendStatus(500);
         })
-    }else {
+    } else {
         res.sendStatus(403); //forbidden, must be logged in
     }
 });

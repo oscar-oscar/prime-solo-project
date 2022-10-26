@@ -28,7 +28,7 @@ function* addGame(action){
         console.log('in POST')
         // action.clearForm(); //clears form after success
         // //after posting
-        yield put({ type: 'FETCH_GAME_DETAILS' });
+        yield put({ type: 'FETCH_GAME_LIST' });
     } catch(error){
         console.log('error in POST axios', error);
         alert('Something went wrong trying to Log New Game');

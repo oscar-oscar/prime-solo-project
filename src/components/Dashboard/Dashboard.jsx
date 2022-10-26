@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import LogGame from '../LogGame/LogGame';
+import LogGame from '../AddGame/AddGame';
 
 //this is the main page of the app
 //user should see a list of their games played
@@ -43,15 +43,15 @@ function Dashboard() {
     return (
         <div>
             <h3>Game List</h3>
-            <button onClick={() => history.push('/log-game')} className="button">Log Game</button>
+            <button onClick={() => history.push('/add')} className="button">Log Game</button>
             <ul>
                 {gameList.map(game => {
                     return (
                         <li key={game.id}>
-                            <div>Game Date: {game.played_at}</div><br />
+                            <div>Game Date: <h3>{game.date}</h3></div><br />
                             <div>My Score: {game.score_a} Opponent : {game.score_b}</div>
                             <div>Location: {game.location}</div>
-                            <div>Game Notes:  {game.notes}</div>
+                            
                             {game.partner ?
                                 <div><h2>My Partner:{game.partner}</h2></div> : null}
 

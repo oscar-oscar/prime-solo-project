@@ -35,15 +35,13 @@ function Details() {
     return (
         <div>
             <h2>DETAILS COMP</h2>
-            <h3>Date Logged: {gameDetails.played_at}</h3>
+            <h3>Date Logged: {gameDetails.date}</h3>
             <h3>My Score: {gameDetails.score_a}</h3>
             <h3>Opponent Score: {gameDetails.score_b}</h3>
             <h3>Paired with: {gameDetails.partner}</h3>
             <h2>VS</h2>
-            <h3>Location: {gameDetails.location}</h3>
-            <h3><p>{gameDetails.notes}</p></h3>
-           
             <h3>{gameDetails.opponent_1} &amp; {gameDetails.opponent_2}</h3>
+            <h3>Location: {gameDetails.location}</h3>
             <button  style={{cursor: 'pointer'}} onClick={() => deleteGame(gameDetails.id)}>Delete</button>
         </div>
     )

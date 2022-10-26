@@ -21,7 +21,8 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import Dashboard from '../Dashboard/Dashboard';
 import Details from '../Details/Details';
-import LogGame from '../LogGame/LogGame';
+import AddGame from '../AddGame/AddGame';
+
 
 import './App.css';
 
@@ -130,11 +131,19 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute
+            // logged in shows UserPage else shows LoginPage
+            exact
+            path="/success"
+          >
+            <Details />
+          </ProtectedRoute>
+
+          <ProtectedRoute
             // logged in allows user to see form to log new game
             exact
-            path="/log-game"
+            path="/add"
           >
-            <LogGame />
+            <AddGame />
           </ProtectedRoute>
 
 

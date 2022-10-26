@@ -28,13 +28,13 @@ app.use(passport.session());
 app.use('/api/user', userRouter);
 app.use('/dashboard', dashRouter)
 app.use ('/details', detailsRouter);
-app.use('/log-game', logGameRouter);
+// app.use('/log-game', logGameRouter);
 
 // Serve static files
 app.use(express.static('build'));
 
 // App Set //
-const PORT = process.env.PORT || 5010;
+const PORT = process.env.PORT || 5020;
 
 /** Listen * */
 app.listen(PORT, () => {

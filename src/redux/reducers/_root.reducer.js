@@ -3,7 +3,7 @@ import errors from './errors.reducer';
 import user from './user.reducer';
 import gameList from './game.reducer';
 import selectedGame from './selectedGame.reducer';
-import logNewGame from './logGame.reducer';
+import addGame from './logGame.reducer';
 
 
 // rootReducer is the primary reducer for our entire project
@@ -17,7 +17,7 @@ const rootReducer = combineReducers({
   user, // will have an id and username if someone is logged in
   gameList,// contains game info
   selectedGame,//when see details is clicked
-  logNewGame,// 
+  addGame,// 
 });
 
 export default rootReducer;

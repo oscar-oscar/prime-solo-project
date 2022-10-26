@@ -21,26 +21,27 @@ function* fetchGameDetails(action){
     }
 }
 
-function* logGame(action){
+function* addGame(action){
     console.log('in *logGame');
     try{
-        yield axios.post('/log-game', action.payload);
+        yield axios.post('/dashboard', action.payload);
         console.log('in POST')
         // action.clearForm(); //clears form after success
         // //after posting
         yield put({ type: 'FETCH_GAME_DETAILS' });
     } catch(error){
-        console.log('error in POST axios * logNewGame', error);
+        console.log('error in POST axios', error);
         alert('Something went wrong trying to Log New Game');
     }
 }
+
 
 
 function* gameSaga() {
     //listening for actions to call functions
     yield takeLatest('FETCH_GAME_LIST', fetchGameList)
     yield takeLatest('FETCH_GAME_DETAILS', fetchGameDetails);
-    yield takeLatest('LOG_GAME', logGame);
+    yield takeLatest('ADD_GAME', addGame);
     
 }
 

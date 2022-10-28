@@ -1,0 +1,18 @@
+.game-form{
+    margin : 20px;
+}
+
+.page-title{
+    font-family: 'Silkscreen', 'Courier New', Courier, monospace;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    color: #fffde7;
+    padding: 0px;
+    margin: 0px;
+
+}
+
+.game-form{
+    flex-wrap: wrap;
+}

@@ -9,13 +9,20 @@ import './AddGame.css';
 import TextField from '@mui/material/TextField';
 import Container from '@mui/material/Container';
 import Stack from '@mui/material/Stack';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormHelperText from '@mui/material/FormHelperText';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+import SinglesForm from '../SinglesForm/SinglesForm';
+import DoublesForm from '../DoublesForm/DoublesForm';
 
 
 function AddGame() {
     console.log('in AddGame');
 
-    const history = useHistory();
-    const dispatch = useDispatch();
+    // const history = useHistory();
+    // const dispatch = useDispatch();
 
     const [myScore, setMyscore] = useState('');
     const [oppScore, setOppScore] = useState('');
@@ -26,26 +33,20 @@ function AddGame() {
     const [gameDate, setGameDate] = useState('');
     const [notes, setNotes] = useState('');
 
+    const [matchType, setMatchType] = useState('Select Match Type');
 
-    // will dispatch here
-    const sumbitForm = (e) => {
-        e.preventDefault();//prevent reload
-        dispatch({
-            type: 'ADD_GAME',
-            payload: {
-                date: gameDate,
-                partner: partnerName,
-                opponent_1: opponentOneName,
-                opponent_2: opponentTwoName,
-                score_a: myScore,
-                score_b: oppScore,
-                location: courtlocation,
-                notes: notes
+    const [singles, setSingles] = useState(false);
+    const [doubles, setDoubles] = useState(false);
 
-            }
-        })
-        history.push('/dashboard'); //push this to success page after testing
-    }
+    const handleOnChange = (e) => {
+        setMatchType(e.target.value);
+    };
+
+    useEffect(() => {
+        matchType === "doubles" ? setDoubles(true) : setDoubles(false);
+        matchType === "singles" ? setSingles(true) : setSingles(false);
+    },[matchType])
+    
 
     return (
         <>
@@ -54,97 +55,26 @@ function AddGame() {
                     </div>
 
             <div className="game-form">
-                <form onSubmit={sumbitForm}>
+                    <label>Singles or Doubles?</label>
+                    <select 
+                    className="form-select" 
+                    value={matchType} 
+                    onChange={handleOnChange}>
+                        <option value="matchPlay">Select Match Type</option>
+                        <option value="singles">Singles</option>
+                        <option value="doubles">Doubles</option>
+                    </select>
+            </div>
+            <div>
+                {singles && <SinglesForm  />}
+                {doubles && <DoublesForms />}
+            </div>
 
                    
-                    <TextField sx={{ width: '25ch', margin: 3, marginTop: 1 }}
-                        type="date"
-                        required
-                        value={gameDate}
-                        onChange={(event) => setGameDate(event.target.value)}
-                    />
-                    <br />
+                  
 
-                    {/* <label>Match Type</label>
-                <select>
-                    <option value="singles">Singles</option>
-                    <option value="doubles">Doubles</option>
-                </select> */}
-
-                    
-                    <TextField sx={{ width: '25ch', margin: 3, marginTop: 1 }}
-                        label="Partner's Name"
-                        type="text"
-                        placeholder="Enter My Partner's Name"
-                        name="myScore"
-                        value={partnerName}
-                        onChange={(event) => setPartnerName(event.target.value)}
-                    />
-                    <br />
-                    <TextField sx={{ width: '25ch', margin: 3, marginTop: 1 }}
-                        label="Opponent One"
-                        type="text"
-                        required
-                        placeholder="Enter Oppoenent's Name"
-                        name="oppenent"
-                        value={opponentOneName}
-                        onChange={(event) => setOpponentOneName(event.target.value)}
-                    />
-                    <br />
-                    <TextField sx={{ width: '25ch', margin: 3, marginTop: 1 }}
-                        label="Opponent Two"
-                        type="text"
-                        placeholder="Enter Second Oppoenent's Name"
-                        name="oppenent-2"
-                        value={opponentTwoName}
-                        onChange={(event) => setOpponentTwoName(event.target.value)}
-                    />
-                    <br />
-
-                    <TextField sx={{ width: '25ch', margin: 3, marginTop: 1 }}
-                        label="My Score"
-                        type="number"
-                        required
-                        placeholder="My Score"
-                        name="myScore"
-                        value={myScore}
-                        onChange={(event) => {
-                            const limit = 2;
-                            setMyscore(event.target.value.slice(0, limit));
-                        }}
-                    />
-                    
-                    <TextField sx={{ width: '25ch', margin: 3, marginTop: 1 }}
-                        label="Opponent Score"
-                        type="number"
-                        required
-                        placeholder="Opponents Score"
-                        name="oppScore"
-                        value={oppScore}
-                        onChange={(event) => {
-                            const limit = 2;
-                            setOppScore(event.target.value.slice(0, limit));
-                        }}
-                    />
-                    <br />
-
-                    <TextField sx={{ width: '25ch' , margin: 3, marginTop: 1 }}
-                        label="Location"
-                        type="text"
-                        required
-                        placeholder="Enter city or court name"
-                        name="location"
-                        value={courtlocation}
-                        onChange={(event) => setCourtlocation(event.target.value)}
-                    />
-                    <Stack spacing={4}>
-                    <Button sx={{ padding: 1, width: 1 }} color="primary" variant="contained" input type="submit">Submit</Button>
-                    <Button sx={{ padding: 1, width: 1 }} color="secondary" variant="contained" onClick={() => history.push('/dashboard')}>Back</Button>
-                    
-                    </Stack>
-
-                </form>
-            </div>
+                
+            
 
         </>
     )

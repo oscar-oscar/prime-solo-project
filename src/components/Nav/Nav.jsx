@@ -10,7 +10,7 @@ function Nav() {
   return (
     <div className="nav">
       <Link to="/dashboard">
-        <h2 className="nav-title">Pickletrax</h2>
+        <h2 className="appTitle">Pickletrax</h2>
       </Link>
       <div>
         {/* If no user is logged in, show these links */}

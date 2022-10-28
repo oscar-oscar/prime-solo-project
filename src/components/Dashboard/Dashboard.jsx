@@ -7,7 +7,9 @@ import LogGame from '../AddGame/AddGame';
 import Grid2 from '@mui/material/Unstable_Grid2';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
+import Container from '@mui/material/Container';
 import './Dashboard.css';
+import GameItem from '../GameItem/GameItem';
 
 
 //this is the main page of the app
@@ -24,21 +26,7 @@ function Dashboard() {
         //replacing with game.saga.js
         dispatch({ type: 'FETCH_GAME_LIST' });
 
-        // axios.get('/dashboard').then(response => {
-        //     console.log(response.data);
-        //     setGameList(response.data);
-        // }).catch(e => {
-        //     console.log(e);
-        //     alert('something went wrong in axios GET getGames');
-        // })
     }//end of getGames
-
-    //game that we click on
-    const seeDetails = (gameToDisplay) => {
-        console.log('in seeDetails', gameToDisplay);
-        dispatch({ type: 'SET_GAME_DETAILS', payload: gameToDisplay });
-        history.push(`/details/${gameToDisplay.id}`);
-    }//end of seeDetails
 
     useEffect(() => {
         getGames();
@@ -50,27 +38,18 @@ function Dashboard() {
             <div>
                 <div className="game-list-h2"><h2>Game List</h2></div>
             </div>
-            <Button sx={{padding:1 , width:1}} color="primary" variant="contained" onClick={() => history.push('/add')} className="button">Log New Game</Button>
+
+            <div><Button style={{ margin: 'auto', display: "flex" }}
+                color="primary" variant="contained" 
+                onClick={() => history.push('/add')}
+                className="button">Log New Game</Button></div>
+
             <ul>
                 {gameList.map(game => {
                     return (
-                        <li key={game.id}>
-                            <div>Game Date: {game.date} </div><br />
-                            <div>My Score: {game.score_a} Opponent : {game.score_b}</div>
-                            <div>Location: {game.location}</div>
-
-                            {game.partner ?
-                                <div>My Partner: {game.partner}</div> : null}
-
-                            <div>Played against: {game.opponent_1}</div>
-                            {game.opponent_2 ?
-                                <div> and {game.opponent_2} </div> : null}
-                            <br />
-
-                            <Button sx={{ margin: 2 }} variant="outlined" size="small" onClick={() => seeDetails(game)}>See Details</Button>
-
-
-                        </li>
+                         <GameItem 
+                         key={game.id}
+                         game={game} />
                     )
                 })}
             </ul>

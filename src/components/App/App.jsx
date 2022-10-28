@@ -22,20 +22,37 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 import Dashboard from '../Dashboard/Dashboard';
 import Details from '../Details/Details';
 import AddGame from '../AddGame/AddGame';
-
-
 import './App.css';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+
+
+
 
 function App() {
   const dispatch = useDispatch();
 
   const user = useSelector(store => store.user);
 
+  const theme = createTheme({
+    palette: {
+      primary: { 
+        main: '#aeea00',
+      },
+      secondary: {
+        main: '#80cbc4'
+      },
+      error: {
+        main: "#ff5722"
+      }
+    }
+  })
+
   useEffect(() => {
     dispatch({ type: 'FETCH_USER' });
   }, [dispatch]);
 
   return (
+    <ThemeProvider theme={theme}>
     <Router>
       <div>
         <Nav />
@@ -155,6 +172,7 @@ function App() {
         <Footer />
       </div>
     </Router>
+    </ThemeProvider>
   );
 }
 

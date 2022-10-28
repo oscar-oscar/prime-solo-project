@@ -53,7 +53,7 @@ function AddGame() {
             <div className="game-form">
                 <form onSubmit={sumbitForm}>
 
-                    <div class="AddGameH2">
+                    <div className="AddGameH2">
                         <h2>Add Game Info</h2>
                     </div>
 
@@ -138,9 +138,10 @@ function AddGame() {
                         value={courtlocation}
                         onChange={(event) => setCourtlocation(event.target.value)}
                     />
-                    <Stack spacing={3}>
-                    <Button sx={{ padding: 1, width: 1 }} color="primary" variant="contained" onClick={() => history.push('/dashboard')}>Back</Button>
-                    <Button sx={{ padding: 1, width: 1 }} color="success" variant="contained" input type="submit">Submit</Button>
+                    <Stack spacing={4}>
+                    <Button sx={{ padding: 1, width: 1 }} color="primary" variant="contained" input type="submit">Submit</Button>
+                    <Button sx={{ padding: 1, width: 1 }} color="secondary" variant="contained" onClick={() => history.push('/dashboard')}>Back</Button>
+                    
                     </Stack>
 
                 </form>

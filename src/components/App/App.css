@@ -111,3 +111,11 @@ input {
   margin-bottom: 10px;
 }
 
+.page-title {
+  font-family: 'Silkscreen', 'Courier New', Courier, monospace;
+  text-align: center;
+  font-size: 1em;
+  font-weight: 700;
+  background-color: #4db6ac;
+  padding: 0.5px;
+}

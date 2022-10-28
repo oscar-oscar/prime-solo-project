@@ -48,14 +48,13 @@ function AddGame() {
     }
 
     return (
-        <Container>
+        <>
+                <div className="page-title">
+                        <h2>Add Game Details</h2>
+                    </div>
 
             <div className="game-form">
                 <form onSubmit={sumbitForm}>
-
-                    <div className="AddGameH2">
-                        <h2>Add Game Info</h2>
-                    </div>
 
                    
                     <TextField sx={{ width: '25ch', margin: 3, marginTop: 1 }}
@@ -147,7 +146,7 @@ function AddGame() {
                 </form>
             </div>
 
-        </Container>
+        </>
     )
 }
 

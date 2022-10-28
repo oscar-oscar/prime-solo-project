@@ -36,13 +36,13 @@ function Dashboard() {
     return (
         <div className="game-list">
             <div>
-                <div className="game-list-h2"><h2>Game List</h2></div>
+                <div className="page-title"><h2>Game List</h2></div>
             </div>
 
             <div><Button style={{ margin: 'auto', display: "flex" }}
                 color="primary" variant="contained" 
                 onClick={() => history.push('/add')}
-                className="button">Log New Game</Button></div>
+                className="button">+ Add New Game</Button></div>
 
             <ul>
                 {gameList.map(game => {

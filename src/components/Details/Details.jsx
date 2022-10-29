@@ -27,7 +27,11 @@ function Details() {
             alert('something went wrong in deleteItem');
         })
     }
-
+    
+    const formatDate = (dateString) => {
+        const date = new Date(dateString);
+        return (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear();
+    }
 
 
     useEffect(() => {
@@ -37,7 +41,7 @@ function Details() {
     return (
         <div>
             <h2>DETAILS COMP</h2>
-            <h3>Date Logged: {gameDetails.date}</h3>
+            <h3>Date Logged: {formatDate(gameDetails.date)} </h3>
             <h3>My Score: {gameDetails.score_a}</h3>
             <h3>Opponent Score: {gameDetails.score_b}</h3>
             <h3>Paired with: {gameDetails.partner}</h3>

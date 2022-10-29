@@ -1,5 +1,7 @@
 .game-form{
+    padding: 10px;
     margin : 20px;
+    flex-wrap: wrap;
 }
 
 .page-title{
@@ -11,8 +13,4 @@
     padding: 0px;
     margin: 0px;
 
-}
-
-.game-form{
-    flex-wrap: wrap;
 }

@@ -46,9 +46,10 @@ router.post('/', (req, res) => {
         "partner",
         "opponent_1",
         "opponent_2",
+        "notes",
         "user_id")
         
-         VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`;
+         VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)`;
 
         pool.query(queryText, [
             req.body.date,
@@ -58,6 +59,7 @@ router.post('/', (req, res) => {
             req.body.partner,
             req.body.opponent_1,
             req.body.opponent_2,
+            req.body.notes,
             req.user.id])
             .then(() => {
                 res.sendStatus(201);

@@ -50,21 +50,9 @@ function AddGame() {
 
     return (
         <>
-                <div className="page-title">
-                        <h2>Add Game Details</h2>
-                    </div>
-
             <div className="game-form">
                 <form onSubmit={sumbitForm}>
-                    
-                    <label>Select Match Type</label>
-                   
-                    <select className={matchType}>
-                        <option value="singles">Singles</option>
-                        <option value="doubles">Doubles</option>
-                    </select>
 
-                   
                     <TextField sx={{ width: '25ch', margin: 3, marginTop: 1 }}
                         type="date"
                         required
@@ -72,7 +60,7 @@ function AddGame() {
                         onChange={(event) => setGameDate(event.target.value)}
                     />
                     <br />
-                    
+
                     <TextField sx={{ width: '25ch', margin: 3, marginTop: 1 }}
                         label="Partner's Name"
                         type="text"
@@ -114,7 +102,7 @@ function AddGame() {
                             setMyscore(event.target.value.slice(0, limit));
                         }}
                     />
-                    
+
                     <TextField sx={{ width: '25ch', margin: 3, marginTop: 1 }}
                         label="Opponent Score"
                         type="number"
@@ -129,7 +117,7 @@ function AddGame() {
                     />
                     <br />
 
-                    <TextField sx={{ width: '25ch' , margin: 3, marginTop: 1 }}
+                    <TextField sx={{ width: '25ch', margin: 3, marginTop: 1 }}
                         label="Location"
                         type="text"
                         required
@@ -138,10 +126,22 @@ function AddGame() {
                         value={courtlocation}
                         onChange={(event) => setCourtlocation(event.target.value)}
                     />
+
+                    <TextField sx={{ width: '25ch', margin: 3, marginTop: 1 }}
+                        id="outlined-multiline-flexible"
+                        multiline
+                        maxRows={2}
+                        type="text"
+                        required
+                        placeholder="Enter notes here limit 120 characters"
+                        name="note"
+                        value={notes}
+                        onChange={(event) => setNotes(event.target.value)}
+                    />
                     <Stack spacing={4}>
-                    <Button sx={{ padding: 1, width: 1 }} color="primary" variant="contained" input type="submit">Submit</Button>
-                    <Button sx={{ padding: 1, width: 1 }} color="secondary" variant="contained" onClick={() => history.push('/dashboard')}>Back</Button>
-                    
+                        <Button sx={{ padding: 1, width: 1 }} color="primary" variant="contained" input type="submit">Submit</Button>
+                        <Button sx={{ padding: 1, width: 1 }} color="secondary" variant="contained" onClick={() => history.push('/dashboard')}>Back</Button>
+
                     </Stack>
 
                 </form>

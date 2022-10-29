@@ -21,18 +21,6 @@ import DoublesForm from '../DoublesForm/DoublesForm';
 function AddGame() {
     console.log('in AddGame');
 
-    // const history = useHistory();
-    // const dispatch = useDispatch();
-
-    const [myScore, setMyscore] = useState('');
-    const [oppScore, setOppScore] = useState('');
-    const [partnerName, setPartnerName] = useState('');
-    const [opponentOneName, setOpponentOneName] = useState('');
-    const [opponentTwoName, setOpponentTwoName] = useState('');
-    const [courtlocation, setCourtlocation] = useState('');
-    const [gameDate, setGameDate] = useState('');
-    const [notes, setNotes] = useState('');
-
     const [matchType, setMatchType] = useState('Select Match Type');
 
     const [singles, setSingles] = useState(false);
@@ -55,7 +43,8 @@ function AddGame() {
                     </div>
 
             <div className="game-form">
-                    <label>Singles or Doubles?</label>
+                    <label>Match Type:</label>
+                   
                     <select 
                     className="form-select" 
                     value={matchType} 
@@ -69,13 +58,6 @@ function AddGame() {
                 {singles && <SinglesForm  />}
                 {doubles && <DoublesForms />}
             </div>
-
-                   
-                  
-
-                
-            
-
         </>
     )
 }

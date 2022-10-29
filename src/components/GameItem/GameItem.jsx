@@ -38,6 +38,8 @@ function GameItem({game}) {
                 <div> and {game.opponent_2} </div> : null}
             <br />
 
+            <div>Game Comment:{game.notes}</div>
+
             <Button sx={{ margin: 2 }} 
             variant="contained" color="secondary" size="small"
                 onClick={() => seeDetails(game)}>See Details</Button>

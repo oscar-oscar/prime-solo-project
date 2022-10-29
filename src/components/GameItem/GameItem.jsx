@@ -27,7 +27,11 @@ function GameItem({game}) {
     return (
         <div key={game.id}>
             <div>Game Date: {game.date} </div><br />
-            <div>My Score: {game.score_a} Opponent : {game.score_b}</div>
+
+            <div>My Score: {game.score_a} 
+                Opponent : {game.score_b}
+            </div>
+            
             <div>Location: {game.location}</div>
 
             {game.partner ?

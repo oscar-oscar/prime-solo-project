@@ -11,6 +11,7 @@ import Stack from '@mui/material/Stack';
 import './DoublesForm.css';
 
 
+
 function DoublesForm() {
     console.log('in AddGame');
 
@@ -27,6 +28,7 @@ function DoublesForm() {
     const [notes, setNotes] = useState('');
 
     const [matchType, setMatchType] = useState('');
+
 
     // will dispatch here
     const sumbitForm = (e) => {
@@ -46,6 +48,7 @@ function DoublesForm() {
             }
         })
         history.push('/dashboard'); //push this to success page after testing
+        
     }
 
     return (
@@ -56,6 +59,7 @@ function DoublesForm() {
                     <TextField sx={{ width: '25ch', margin: 3, marginTop: 1 }}
                         type="date"
                         required
+                        color="secondary"
                         value={gameDate}
                         onChange={(event) => setGameDate(event.target.value)}
                     />
@@ -66,6 +70,7 @@ function DoublesForm() {
                         type="text"
                         placeholder="Enter My Partner's Name"
                         name="myScore"
+                        color="secondary"
                         value={partnerName}
                         onChange={(event) => setPartnerName(event.target.value)}
                     />
@@ -76,6 +81,7 @@ function DoublesForm() {
                         required
                         placeholder="Enter Oppoenent's Name"
                         name="oppenent"
+                        color="secondary"
                         value={opponentOneName}
                         onChange={(event) => setOpponentOneName(event.target.value)}
                     />
@@ -85,17 +91,19 @@ function DoublesForm() {
                         type="text"
                         placeholder="Enter Second Oppoenent's Name"
                         name="oppenent-2"
+                        color="secondary"
                         value={opponentTwoName}
                         onChange={(event) => setOpponentTwoName(event.target.value)}
                     />
                     <br />
 
-                    <TextField sx={{ width: '25ch', margin: 3, marginTop: 1 }}
+                    <TextField sx={{ width: '25ch', margin: 3, marginTop: 1 , inputMode: 'numeric', pattern: '[0-99]'}}
                         label="My Score"
                         type="number"
                         required
                         placeholder="My Score"
                         name="myScore"
+                        color="secondary"
                         value={myScore}
                         onChange={(event) => {
                             const limit = 2;
@@ -109,6 +117,7 @@ function DoublesForm() {
                         required
                         placeholder="Opponents Score"
                         name="oppScore"
+                        color="secondary"
                         value={oppScore}
                         onChange={(event) => {
                             const limit = 2;
@@ -123,6 +132,7 @@ function DoublesForm() {
                         required
                         placeholder="Enter city or court name"
                         name="location"
+                        color="secondary"
                         value={courtlocation}
                         onChange={(event) => setCourtlocation(event.target.value)}
                     />
@@ -135,6 +145,7 @@ function DoublesForm() {
                         required
                         placeholder="Enter notes here limit 120 characters"
                         name="note"
+                        color="secondary"
                         value={notes}
                         onChange={(event) => setNotes(event.target.value)}
                     />

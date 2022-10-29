@@ -36,7 +36,7 @@ function Dashboard() {
     return (
         <div className="game-list">
             <div>
-                <div className="page-title"><h2>Game List</h2></div>
+                <div className="page-title"><h2>Game History</h2></div>
             </div>
 
             <div><Button style={{ margin: 'auto', display: "flex" }}

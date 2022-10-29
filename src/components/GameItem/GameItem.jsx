@@ -10,7 +10,7 @@ import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
 
 
-function GameItem({game}) {
+function GameItem({ game }) {
     console.log('in GameItem');
 
     const dispatch = useDispatch();
@@ -23,15 +23,20 @@ function GameItem({game}) {
         history.push(`/details/${gameToDisplay.id}`);
         //end of seeDetails
     }
+    
+    const formatDate = (dateString) => {
+        const date = new Date(dateString);
+        return (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear();
+    }
 
     return (
         <div key={game.id}>
-            <div>Game Date: {game.date} </div><br />
+            <div>Game Date: {formatDate(game.date)} </div><br />
 
-            <div>My Score: {game.score_a} 
+            <div>My Score: {game.score_a}
                 Opponent : {game.score_b}
             </div>
-            
+
             <div>Location: {game.location}</div>
 
             {game.partner ?
@@ -44,8 +49,8 @@ function GameItem({game}) {
 
             <div>Game Comment:{game.notes}</div>
 
-            <Button sx={{ margin: 2 }} 
-            variant="contained" color="secondary" size="small"
+            <Button sx={{ margin: 2 }}
+                variant="contained" color="secondary" size="small"
                 onClick={() => seeDetails(game)}>See Details</Button>
         </div>
     )

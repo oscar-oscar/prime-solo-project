@@ -94,6 +94,7 @@ function SinglesForm() {
                     placeholder="Opponents Score"
                     name="oppScore"
                     value={oppScore}
+                    error={myScore - oppScore < 2 || oppScore - myScore < 2 ? true : false}
                     onChange={(event) => {
                         const limit = 2;
                         setOppScore(event.target.value.slice(0, limit));

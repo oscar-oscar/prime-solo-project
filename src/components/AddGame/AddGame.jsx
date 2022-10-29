@@ -42,8 +42,8 @@ function AddGame() {
                         <h2>Add Game Details</h2>
                     </div>
 
-            <div className="game-form">
-                    <label>Match Type:</label>
+            <div className="match-type-title">
+                    <h2> Select Singles or Doubles  </h2>
                    
                     <select 
                     className="form-select" 
@@ -56,7 +56,7 @@ function AddGame() {
             </div>
             <div>
                 {singles && <SinglesForm  />}
-                {doubles && <DoublesForms />}
+                {doubles && <DoublesForm />}
             </div>
         </>
     )

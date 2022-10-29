@@ -11,7 +11,7 @@ import Stack from '@mui/material/Stack';
 import './DoublesForm.css';
 
 
-function AddGame() {
+function DoublesForm() {
     console.log('in AddGame');
 
     const history = useHistory();
@@ -151,4 +151,4 @@ function AddGame() {
     )
 }
 
-export default AddGame;
+export default DoublesForm;

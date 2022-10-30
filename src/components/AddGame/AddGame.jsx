@@ -21,16 +21,17 @@ import DoublesForm from '../DoublesForm/DoublesForm';
 function AddGame() {
     console.log('in AddGame');
 
-    const [matchType, setMatchType] = useState('Select Match Type');
+    const [matchType, setMatchType] = useState('Select');
 
-    const [singles, setSingles] = useState(false);
-    const [doubles, setDoubles] = useState(false);
+    const [singles, setSingles] = useState("false");
+    const [doubles, setDoubles] = useState("false");
 
     const handleOnChange = (e) => {
         setMatchType(e.target.value);
     };
 
     useEffect(() => {
+       
         matchType === "doubles" ? setDoubles(true) : setDoubles(false);
         matchType === "singles" ? setSingles(true) : setSingles(false);
     },[matchType])
@@ -45,14 +46,15 @@ function AddGame() {
             <div className="match-type-title">
                     <h2> Select Singles or Doubles  </h2>
                    
-                    <select 
+                    <Select 
                     className="form-select" 
+                    label="Select Match"
                     value={matchType} 
                     onChange={handleOnChange}>
-                        <option value="matchPlay">Select Match Type</option>
-                        <option value="singles">Singles</option>
-                        <option value="doubles">Doubles</option>
-                    </select>
+                        <MenuItem value="Select">Select Match Type</MenuItem>
+                        <MenuItem value="singles">Singles</MenuItem>
+                        <MenuItem value="doubles">Doubles</MenuItem>
+                    </Select>
             </div>
             <div>
                 {singles && <SinglesForm  />}

@@ -13,7 +13,7 @@ import './DoublesForm.css';
 
 
 function DoublesForm() {
-    console.log('in AddGame');
+    console.log('in DoublesForm');
 
     const history = useHistory();
     const dispatch = useDispatch();
@@ -89,6 +89,7 @@ function DoublesForm() {
                     <TextField sx={{ width: '25ch', margin: 3, marginTop: 1 }}
                         label="Opponent Two"
                         type="text"
+                        required
                         placeholder="Enter Second Oppoenent's Name"
                         name="oppenent-2"
                         color="secondary"
@@ -138,12 +139,12 @@ function DoublesForm() {
                     />
 
                     <TextField sx={{ width: '25ch', margin: 3, marginTop: 1 }}
-                        id="outlined-multiline-flexible"
+                        label="Game Notes"
                         multiline
                         maxRows={2}
                         type="text"
                         required
-                        placeholder="Enter notes here limit 120 characters"
+                        placeholder="Limit 120 characters"
                         name="note"
                         color="secondary"
                         value={notes}

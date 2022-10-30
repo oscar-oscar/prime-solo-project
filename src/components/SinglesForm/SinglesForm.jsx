@@ -94,7 +94,7 @@ function SinglesForm() {
                     placeholder="Opponents Score"
                     name="oppScore"
                     value={oppScore}
-                    error={myScore - oppScore < 2 || oppScore - myScore < 2 ? true : false}
+                    // error={myScore - oppScore < 2 || oppScore - myScore < 2 ? true : false}
                     onChange={(event) => {
                         const limit = 2;
                         setOppScore(event.target.value.slice(0, limit));
@@ -113,12 +113,12 @@ function SinglesForm() {
                 />
 
                 <TextField sx={{ width: '25ch', margin: 3, marginTop: 1 }}
-                    id="outlined-multiline-flexible"
+                    label="Game Notes"
                     multiline
                     maxRows={2}
                     type="text"
                     required
-                    placeholder="Enter notes here limit 120 characters"
+                    placeholder="Limit 120 characters"
                     name="note"
                     value={notes}
                     onChange={(event) => setNotes(event.target.value)}

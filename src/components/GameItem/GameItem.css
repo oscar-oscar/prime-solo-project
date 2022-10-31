@@ -1,0 +1,58 @@
+.box {
+    position: relative;
+    display: flex;
+    
+   
+    
+}
+.scoreA{
+    display: inline-block;
+    padding-right: 32px;
+    padding-left: 32px;
+}
+
+.scoreB{
+    display: inline-block;
+    
+}
+
+.myScore-h1,.myScore-title{
+    margin: auto;
+}
+
+
+.myScore-title, .myScore-h1{
+    color: red;
+    display: block;
+}
+
+.opponentScore-title, .oppScore-h1{
+    display: block;
+    font-weight: 700;
+}
+
+.courtLocation{
+    display: block;
+    padding-left: 32px;
+}
+
+
+.dash-date{
+    color:rgb(54, 54, 75);
+    position: absolute;
+    margin-top: 10px;
+    padding-left: 10%;
+    font-size: 1.0em;
+    font-weight: 700;
+    font-family: 'Rubik', sans-serif;
+    text-align: center;
+   
+}
+
+.seeDetails{
+    padding-left:32px;
+    margin-bottom: 30px;
+}
+
+
+  

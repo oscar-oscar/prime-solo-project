@@ -57,6 +57,7 @@ function SinglesForm() {
                 <TextField sx={{ width: '25ch', margin: 3, marginTop: 1 }}
                     type="date"
                     required
+                    color="secondary"
                     value={gameDate}
                     onChange={(event) => setGameDate(event.target.value)}
                 />
@@ -69,6 +70,7 @@ function SinglesForm() {
                     required
                     placeholder="Enter Oppoenent's Name"
                     name="oppenent"
+                    color="secondary"
                     value={opponentOneName}
                     onChange={(event) => setOpponentOneName(event.target.value)}
                 />
@@ -80,6 +82,7 @@ function SinglesForm() {
                     required
                     placeholder="My Score"
                     name="myScore"
+                    color="secondary"
                     value={myScore}
                     onChange={(event) => {
                         const limit = 2;
@@ -93,6 +96,7 @@ function SinglesForm() {
                     required
                     placeholder="Opponents Score"
                     name="oppScore"
+                    color="secondary"
                     value={oppScore}
                     // error={myScore - oppScore < 2 || oppScore - myScore < 2 ? true : false}
                     onChange={(event) => {
@@ -108,6 +112,7 @@ function SinglesForm() {
                     required
                     placeholder="Enter city or court name"
                     name="location"
+                    color="secondary"
                     value={courtlocation}
                     onChange={(event) => setCourtlocation(event.target.value)}
                 />
@@ -120,6 +125,7 @@ function SinglesForm() {
                     required
                     placeholder="Limit 120 characters"
                     name="note"
+                    color="secondary"
                     value={notes}
                     onChange={(event) => setNotes(event.target.value)}
                 />

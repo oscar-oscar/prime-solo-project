@@ -32,8 +32,15 @@ function App() {
 
   const user = useSelector(store => store.user);
 
+  
+
   const theme = createTheme({
     palette: {
+      
+      background:{
+        paper: '#fffde7',
+        
+      },
       primary: { 
         main: '#aeea00',
       },

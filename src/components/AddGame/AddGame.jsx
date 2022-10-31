@@ -45,9 +45,10 @@ function AddGame() {
 
             <div className="match-type-title">
                     <h2> Select Singles or Doubles  </h2>
-                   
+                    <InputLabel id="drop-down">Match Type</InputLabel>
                     <Select 
                     className="form-select" 
+                    placeholder="Select Match"
                     label="Select Match"
                     value={matchType} 
                     onChange={handleOnChange}>

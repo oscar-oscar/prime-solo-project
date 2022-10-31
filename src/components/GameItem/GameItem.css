@@ -34,6 +34,7 @@
 .courtLocation{
     display: block;
     padding-left: 32px;
+    max-width: fit-content;
 }
 
 

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { actionChannel, put, takeLatest } from 'redux-saga/effects';
+import { actionChannel, put, takeEvery, takeLatest } from 'redux-saga/effects';
 
 function* fetchGameList() {
     try {
@@ -49,6 +49,18 @@ function* addSinglesGame(action){
     }
 }
 
+function* editSinglesGame(action){
+    try{// action.payload.id = id passed in our dispatch payload in SinglesForm comp
+        //action.payload = optional put req data (all other properties passed)
+        yield axios.put(`/details/${action.payload.id}`, action.payload); 
+        console.log('in PUT edit Singles Game')
+        if (action.history){//fail safe : remember this on group projects
+            action.history.goBack();  //removes edit page from history and avoids going back into edit form. Best UX practice
+        }
+    } catch(error){
+        console.log(error, 'error in editSinglesGame')
+    }
+}
 
 
 function* gameSaga() {
@@ -56,7 +68,8 @@ function* gameSaga() {
     yield takeLatest('FETCH_GAME_LIST', fetchGameList)
     yield takeLatest('FETCH_GAME_DETAILS', fetchGameDetails);
     yield takeLatest('ADD_GAME', addGame);
-    yield takeLatest('ADD_SINGLES_GAME', addSinglesGame);
+    yield takeLatest('ADD_SINGLES_GAME', addSinglesGame)
+    yield takeLatest('EDIT_SINGLES_GAME', editSinglesGame);
     
 }
 

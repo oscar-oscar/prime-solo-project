@@ -42,10 +42,13 @@ function Dashboard() {
             <div><Button style={{ margin: 'auto', display: "flex" }}
                 color="primary" variant="contained" 
                 onClick={() => history.push('/add')}
-                className="button">+ Add New Game</Button></div>
+                className="button">+ Add New Game</Button>
+            </div>
 
+            <div className='record'>
                 {gameList.filter(game => game.score_a > game.score_b).length}
                 {gameList.filter(game => game.score_a < game.score_b).length}
+            </div>
 
             <ul>
                 {gameList.map(game => {

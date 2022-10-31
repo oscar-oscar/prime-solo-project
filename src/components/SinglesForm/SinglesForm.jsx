@@ -29,14 +29,23 @@ function SinglesForm({gameId, gameDetails}) {
     const [courtlocation, setCourtlocation] = useState(gameId ? gameDetails.location : '');
     const [gameDate, setGameDate] = useState('');
     const [notes, setNotes] = useState(gameId ? gameDetails.notes : '');
+    const {id} = useParams();
 
 
     // will dispatch here
     const sumbitForm = (e) => {
         e.preventDefault();//prevent reload
-        if(gameId){
-            //dispath for axios.put
-        } else{
+        if(gameId){//if gameId exist, edit game
+            //dispatchfor axios.put to edit
+            dispatch({ type: 'EDIT_SINGLES_GAME', 
+                        payload:{ score_a: myScore, 
+                        score_b: oppScore, 
+                        opponent_1: opponentOneName,
+                        location: courtlocation,
+                        notes: notes, 
+                        id }, history }); //passing history into saga 
+
+        } else{//add game
             dispatch({
                 type: 'ADD_SINGLES_GAME',
                 payload: {

@@ -43,4 +43,21 @@ router.delete('/:id', (req, res) => {
     }
 });
 
+router.put('/:id', (req, res) => {
+    
+    const queryText = `UPDATE "game" SET "score_a" = $1, "score_b" = $2, "location"= $3,
+                      "partner" = $4, "opponent_1" = $5, "opponent_2" = $6, "notes" = $7
+                       WHERE "id" = $8 AND "user_id" = $9`; 
+    pool.query(queryText, [ req.body.score_a, req.body.score_b, req.body.location,
+                            req.body.partner, req.body.opponent_1, req.body.opponent_2, 
+                            req.body.notes, req.params.id, req.user.id])
+    .then(results => {
+        res.sendStatus(200)
+    }).catch(error => {
+        console.log(error);
+        res.sendStatus(500);
+    })
+
+})
+
 module.exports = router;

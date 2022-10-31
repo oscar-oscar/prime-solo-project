@@ -18,18 +18,39 @@ import SinglesForm from '../SinglesForm/SinglesForm';
 import DoublesForm from '../DoublesForm/DoublesForm';
 
 
+
 function AddGame() {
     console.log('in AddGame');
-
+    const gameDetails = useSelector(store => store.selectedGame)
     const [matchType, setMatchType] = useState('Select');
-
+    const dispatch = useDispatch();
     const [singles, setSingles] = useState("false");
     const [doubles, setDoubles] = useState("false");
 
     const handleOnChange = (e) => {
         setMatchType(e.target.value);
     };
+    const { gameId } = useParams();
 
+    useEffect(() => {
+        if(gameId)
+        {
+        dispatch({ type: 'FETCH_GAME_DETAILS', payload: gameId });
+        }
+    }, [gameId])
+
+    useEffect(() => {
+        console.log(gameDetails)
+        if(gameId){
+            if(gameDetails.oppenent_2){
+                setMatchType("doubles")
+            }else {
+                setMatchType("singles")
+            } 
+        }
+    }, [gameDetails])
+   
+   
     useEffect(() => {
        
         matchType === "doubles" ? setDoubles(true) : setDoubles(false);
@@ -58,8 +79,8 @@ function AddGame() {
                     </Select>
             </div>
             <div>
-                {singles && <SinglesForm  />}
-                {doubles && <DoublesForm />}
+                {singles && <SinglesForm gameId = {gameId} gameDetails = {gameDetails} />}
+                {doubles && <DoublesForm gameId = {gameId} gameDetails = {gameDetails} />}
             </div>
         </>
     )

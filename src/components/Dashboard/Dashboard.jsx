@@ -44,6 +44,9 @@ function Dashboard() {
                 onClick={() => history.push('/add')}
                 className="button">+ Add New Game</Button></div>
 
+                {gameList.filter(game => game.score_a > game.score_b).length}
+                {gameList.filter(game => game.score_a < game.score_b).length}
+
             <ul>
                 {gameList.map(game => {
                     return (

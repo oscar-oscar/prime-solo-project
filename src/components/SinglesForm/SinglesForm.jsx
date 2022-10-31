@@ -17,36 +17,40 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
 
-function SinglesForm() {
+function SinglesForm({gameId, gameDetails}) {
     console.log('in singles form');
 
     const history = useHistory();
     const dispatch = useDispatch();
-
-    const [myScore, setMyscore] = useState('');
-    const [oppScore, setOppScore] = useState('');
-    const [opponentOneName, setOpponentOneName] = useState('');
-    const [courtlocation, setCourtlocation] = useState('');
+//next time use reducer for these
+    const [myScore, setMyscore] = useState(gameId ? gameDetails.score_a : '');
+    const [oppScore, setOppScore] = useState(gameId ? gameDetails.score_b :'');
+    const [opponentOneName, setOpponentOneName] = useState(gameId ? gameDetails.opponent_1 : '');
+    const [courtlocation, setCourtlocation] = useState(gameId ? gameDetails.location : '');
     const [gameDate, setGameDate] = useState('');
-    const [notes, setNotes] = useState('');
-
+    const [notes, setNotes] = useState(gameId ? gameDetails.notes : '');
 
 
     // will dispatch here
     const sumbitForm = (e) => {
         e.preventDefault();//prevent reload
-        dispatch({
-            type: 'ADD_SINGLES_GAME',
-            payload: {
-                date: gameDate,
-                opponent_1: opponentOneName,
-                score_a: myScore,
-                score_b: oppScore,
-                location: courtlocation,
-                notes: notes,
-
-            }
-        })
+        if(gameId){
+            //dispath for axios.put
+        } else{
+            dispatch({
+                type: 'ADD_SINGLES_GAME',
+                payload: {
+                    date: gameDate,
+                    opponent_1: opponentOneName,
+                    score_a: myScore,
+                    score_b: oppScore,
+                    location: courtlocation,
+                    notes: notes,
+    
+                }
+            })
+        }
+        
         history.push('/dashboard'); //push this to success page after testing
     }
 

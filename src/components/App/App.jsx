@@ -171,6 +171,14 @@ function App() {
             <AddGame />
           </ProtectedRoute>
 
+          <ProtectedRoute
+            // logged in allows user to see form to edit
+            exact
+            path="/edit/:gameId"
+          >
+            <AddGame />
+          </ProtectedRoute>
+
 
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>

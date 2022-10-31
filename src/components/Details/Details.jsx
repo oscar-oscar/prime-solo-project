@@ -2,7 +2,7 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory, useParams } from 'react-router-dom';
+import { useHistory, useParams, Link } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 
@@ -51,10 +51,13 @@ function Details() {
             <br />
             <Stack spacing={3}>
                 <Button sx={{ padding: 1, width: 1 }} color="primary" variant="contained" onClick={() => history.push('/dashboard')}>Back to Game List</Button>
+                <Button sx={{ padding: 1, width: 1 }} color="primary" variant="contained" onClick={() => history.push(`/edit/${gameDetails.id}`)}>Edit</Button>
                 <Button sx={{ padding: 1, width: 1 }} color="error" variant="contained" onClick={() => deleteGame(gameDetails.id)}>Delete This Game</Button>
             </Stack>
         </div>
+
     )
 }
 
 export default Details;
+

@@ -12,27 +12,39 @@ import './DoublesForm.css';
 
 
 
-function DoublesForm() {
+function DoublesForm({gameId, gameDetails}) {
     console.log('in DoublesForm');
 
     const history = useHistory();
     const dispatch = useDispatch();
 
-    const [myScore, setMyscore] = useState('');
-    const [oppScore, setOppScore] = useState('');
-    const [partnerName, setPartnerName] = useState('');
-    const [opponentOneName, setOpponentOneName] = useState('');
-    const [opponentTwoName, setOpponentTwoName] = useState('');
-    const [courtlocation, setCourtlocation] = useState('');
+    const [myScore, setMyscore] = useState(gameId ? gameDetails.score_a :'');
+    const [oppScore, setOppScore] = useState(gameId ? gameDetails.score_b :'');
+    const [partnerName, setPartnerName] = useState(gameId ? gameDetails.partner :'');
+    const [opponentOneName, setOpponentOneName] = useState(gameId ? gameDetails.opponent_1 :'');
+    const [opponentTwoName, setOpponentTwoName] = useState(gameId ? gameDetails.opponent_2 :'');
+    const [courtlocation, setCourtlocation] = useState(gameId ? gameDetails.location :'');
     const [gameDate, setGameDate] = useState('');
-    const [notes, setNotes] = useState('');
+    const [notes, setNotes] = useState(gameId ? gameDetails.notes : '');
 
-    const [matchType, setMatchType] = useState('');
+    // const [matchType, setMatchType] = useState('');
 
 
     // will dispatch here
     const sumbitForm = (e) => {
         e.preventDefault();//prevent reload
+        if(gameId){
+            dispatch({ type: 'EDIT_DOUBLES_GAME', 
+                        payload:{ 
+                        score_a: myScore, 
+                        score_b: oppScore, 
+                        opponent_1: opponentOneName,
+                        opponent_2: opponentTwoName,
+                        location: courtlocation,
+                        notes: notes, 
+                        id:gameId }, history }); //passing history into saga 
+
+    } else{
         dispatch({
             type: 'ADD_GAME',
             payload: {
@@ -47,6 +59,7 @@ function DoublesForm() {
 
             }
         })
+    }
         history.push('/dashboard'); //push this to success page after testing
         
     }

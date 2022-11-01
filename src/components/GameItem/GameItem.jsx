@@ -45,7 +45,11 @@ function GameItem({ game }) {
                                 <div className='scoreA'>
                                     <div className={game.score_a > game.score_b ? 'win' : 'loss'}>
                                     <div className='myScore-title'>
-                                        <h3>{user.username}</h3>
+                                        <h3>{user.username}
+                                        <div>{game.partner ?
+                                        <div> &amp; {game.partner}</div> : null}
+                                    </div></h3>
+
                                     </div>
                                         <h2>{game.score_a}</h2>
                                     </div>
@@ -54,21 +58,25 @@ function GameItem({ game }) {
                                     <div className='scoreB'>
                                     <div className={game.score_b > game.score_a ? 'win' : 'loss'}>
                                     <div className='opponentScore-title'>
-                                        <h3>{game.opponent_1}</h3>
+                                        <h3>{game.opponent_1}
+                                        <div>{game.opponent_2 ?
+                                        <div> &amp;  {game.opponent_2} </div> : null}
+                                    </div></h3>
+                                        
                                      </div>
                                         <h2>{game.score_b}</h2></div>
                                     </div>
 
                                     {/* <div className='courtLocation'>Court Location : {game.location}</div> */}
 
-                                    <div>{game.partner ?
+                                    {/* <div>{game.partner ?
                                         <div>My Partner: {game.partner}</div> : null}
-                                    </div>
+                                    </div> */}
 
                                     {/* <div>Played against: {game.opponent_1}</div> */}
-                                    <div>{game.opponent_2 ?
+                                    {/* <div>{game.opponent_2 ?
                                         <div> and {game.opponent_2} </div> : null}
-                                    </div>
+                                    </div> */}
 
                                     <div className='notes'>{game.notes}</div>
 

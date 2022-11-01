@@ -19,6 +19,7 @@ function AboutPage() {
           <li> PostgreSQL</li>
           <li> Material UI</li>
           <li> Adobe Illustrator</li>
+          <li> Lucid</li>
           <h2> Future Additions </h2>
           <li> User to user interaction</li>
             <p> Including: messaging, rematach <br />

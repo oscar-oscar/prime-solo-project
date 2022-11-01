@@ -25,16 +25,15 @@ function UserPage() {
         <h1 className='welcome'>Welcome, {user.username}!</h1>
 
        
-          <Paper sx={{ minWidth: 275, margin: 1 }} className="ball"
+          <div sx={{ minWidth: 275, margin: 1 }} className="ball"
             onClick={() => history.push('/dashboard')}  >
             <img src={Ball} width="100" height="100"
               onClick={() => history.push('/dashboard')} />
 
             <h4 className='tap'>Tap for Game History</h4>
 
-          </Paper>
+          </div>
        
-
         <Box>
           <Paper className='user-record-paper' >
             <div className='user-record'>

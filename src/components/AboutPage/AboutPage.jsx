@@ -9,7 +9,40 @@ function AboutPage() {
   return (
     <div className="container">
       <div>
-        <p>This about page is for anyone to read!</p>
+        <ul>
+          <h2> Technologies Used:</h2>
+          <li> React</li>
+          <li> Redux</li>
+          <li> Redux Saga</li>
+          <li> Node JS</li>
+          <li> Express</li>
+          <li> PostgreSQL</li>
+          <li> Material UI</li>
+          <li> Adobe Illustrator</li>
+          <h2> Future Additions </h2>
+          <li> User to user interaction</li>
+            <p> Including: messaging, rematach <br />
+              requests and match creation</p>
+          <li>Match play to replace single <br />
+             game logging</li>
+
+             <h2>Acknowledgments</h2>
+             <li>Prime Academy</li>
+             <li>Instructor: Chris Black</li>
+             <li>Code Coach: Peter DeMaio</li>
+             <li>Phrygian Cohort</li>
+             <li>Mentors: Jake and Amanda</li>
+             <li>Prime Alumni</li>
+             <li>Most of all, friends and family <br />
+             for their support</li>
+             
+             
+          
+
+
+          
+
+        </ul>
       </div>
     </div>
   );

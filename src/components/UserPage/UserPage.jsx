@@ -24,7 +24,7 @@ function UserPage() {
 
         <h1 className='welcome'>Welcome, {user.username}!</h1>
 
-        <Box>
+       
           <Paper sx={{ minWidth: 275, margin: 1 }} className="ball"
             onClick={() => history.push('/dashboard')}  >
             <img src={Ball} width="100" height="100"
@@ -33,7 +33,7 @@ function UserPage() {
             <h4 className='tap'>Tap for Game History</h4>
 
           </Paper>
-        </Box>
+       
 
         <Box>
           <Paper className='user-record-paper' >
@@ -47,8 +47,7 @@ function UserPage() {
           </Paper>
         </Box>
 
-        <Box>
-          <Paper sx={{ minWidth: 275, margin: 1 }}>
+        
             <div className='user-matches'>
               <h3>Upcoming Matches </h3>
               <ul>
@@ -57,9 +56,6 @@ function UserPage() {
                 </li>
               </ul>
             </div>
-
-          </Paper>
-        </Box>
 
 
         <div>

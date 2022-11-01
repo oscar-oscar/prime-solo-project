@@ -33,18 +33,21 @@ function DoublesForm({gameId, gameDetails}) {
     // will dispatch here
     const sumbitForm = (e) => {
         e.preventDefault();//prevent reload
-        if(gameId){
+        if(gameId){//if gameId exist, edit game
+            //dispatchfor axios.put to edit
             dispatch({ type: 'EDIT_DOUBLES_GAME', 
                         payload:{ 
-                        score_a: myScore, 
-                        score_b: oppScore, 
+                        partner: partnerName,
                         opponent_1: opponentOneName,
                         opponent_2: opponentTwoName,
                         location: courtlocation,
+                        score_a: myScore, 
+                        score_b: oppScore, 
                         notes: notes, 
                         id:gameId }, history }); //passing history into saga 
 
-    } else{
+        }else{
+      
         dispatch({
             type: 'ADD_GAME',
             payload: {
@@ -60,6 +63,7 @@ function DoublesForm({gameId, gameDetails}) {
             }
         })
     }
+    
         history.push('/dashboard'); //push this to success page after testing
         
     }

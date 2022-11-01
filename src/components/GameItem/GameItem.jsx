@@ -45,10 +45,10 @@ function GameItem({ game }) {
                                 <div className='scoreA'>
                                     <div className={game.score_a > game.score_b ? 'win' : 'loss'}>
                                     <div className='myScore-title'>
-                                        <h3>{user.username}
+                                        <h3>{user.username}</h3>
                                         <div>{game.partner ?
                                         <div> &amp; {game.partner}</div> : null}
-                                    </div></h3>
+                                    </div>
 
                                     </div>
                                         <h2>{game.score_a}</h2>
@@ -58,10 +58,10 @@ function GameItem({ game }) {
                                     <div className='scoreB'>
                                     <div className={game.score_b > game.score_a ? 'win' : 'loss'}>
                                     <div className='opponentScore-title'>
-                                        <h3>{game.opponent_1}
+                                        <h3>{game.opponent_1}</h3>
                                         <div>{game.opponent_2 ?
                                         <div> &amp;  {game.opponent_2} </div> : null}
-                                    </div></h3>
+                                    </div>
                                         
                                      </div>
                                         <h2>{game.score_b}</h2></div>

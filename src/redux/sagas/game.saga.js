@@ -63,15 +63,29 @@ function* editSinglesGame(action){
     }
 }
 
+function* editDoublesGame(action){
+    console.log('in editSinglesGame')
+    try{// action.payload.id = id passed in our dispatch payload in SinglesForm comp
+        //action.payload = optional put req data (all other properties passed)
+        yield axios.put(`/details/${action.payload.id}`, action.payload); 
+        console.log('in PUT edit Doubles Game')
+        if (action.history){//fail safe : remember this on group projects
+            action.history.push(`/details/${action.payload.id}`);  //removes edit page from history and avoids going back into edit form. Best UX practice
+        }
+    } catch(error){
+        console.log(error, 'error in editSinglesGame')
+    }
+}
+
 
 function* gameSaga() {
     //listening for actions to call functions
     yield takeLatest('FETCH_GAME_LIST', fetchGameList)
     yield takeLatest('FETCH_GAME_DETAILS', fetchGameDetails);
     yield takeLatest('ADD_GAME', addGame);
-    yield takeLatest('ADD_SINGLES_GAME', addSinglesGame)
+    yield takeLatest('ADD_SINGLES_GAME', addSinglesGame);
     yield takeLatest('EDIT_SINGLES_GAME', editSinglesGame);
-    
+    yield takeEvery('EDIT_DOUBLES_GAME', editDoublesGame)
 }
 
 export default gameSaga;

@@ -57,7 +57,10 @@ function Details() {
                         <div className='details-scoreA'>
                             <div className={gameDetails.score_a > gameDetails.score_b ? 'win' : 'loss'}>
                                 <div>
-                                    <h3>{user.username}</h3>
+                                    <h3>{user.username}
+                                        <div>{gameDetails.partner ? <div> &amp; {gameDetails.partner}</div> : null}
+                                        </div>
+                                    </h3>
                                 </div>
                                 <h2>{gameDetails.score_a}</h2>
                             </div>
@@ -66,7 +69,10 @@ function Details() {
                         <div className='details-scoreB'>
                             <div className={gameDetails.score_b > gameDetails.score_a ? 'win' : 'loss'}>
                                 <div>
-                                    <h3>{gameDetails.opponent_1}</h3>
+                                    <h3>{gameDetails.opponent_1}
+                                        <div>{gameDetails.opponent_2 ?
+                                            <div> &amp; {gameDetails.opponent_2} </div> : null}
+                                        </div></h3>
                                 </div>
                                 <div>
                                     <h2>{gameDetails.score_b}</h2></div>

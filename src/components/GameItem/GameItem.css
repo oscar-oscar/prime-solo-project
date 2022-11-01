@@ -11,7 +11,7 @@
 
 .scoreB{
     display: inline-block;
-    padding-left: 32px;
+    padding-left: 50px;
     
 }
 
@@ -20,7 +20,10 @@
     font-family : 'Rubik', sans-serif;
     font-style: italic;
     font-weight: 600;
+    font-size: 0.8em;
+    padding-left: 10px;
 }
+
 
 .opponentScore-title, .oppScore-h1{
     display: block;
@@ -28,6 +31,8 @@
     font-family : 'Rubik', sans-serif;
     font-style: italic;
     font-weight: 600;
+    font-size: 0.8em;
+    
     
 }
 
@@ -37,12 +42,11 @@
     max-width: 200px;
 }
 
-
 .dash-date{
-    color:rgb(54, 54, 75);
+    color:#424242;
     position: absolute;
     margin-top: 10px;
-    padding-left: 14%;
+    padding-left: 11%;
     font-size: 1.0em;
     font-weight: 700;
     font-family: 'Rubik', sans-serif;
@@ -102,6 +106,9 @@
     padding-left: 32px;
     max-width: 200px;
     margin-top: 10px;
+    padding-bottom: 10px;
+    font-family: 'Rubik', sans-serif;;
+    font-weight: 600;
 }
 
 

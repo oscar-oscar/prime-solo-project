@@ -32,16 +32,16 @@ function GameItem({ game }) {
     return (
         <Container maxWidth="sm">
             <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-                <Box className='box' sx={{ width: '100%' }} >
+               
                     <Paper className='paper' elevation={3} sx={{ minWidth: 275, margin: 1 }}>
 
                         <div key={game.id}>
 
-                            <Grid item xs={12}>
+                            
                                 <div className='dash-date'>Date Played: {formatDate(game.date)}</div>
                                 <br />
 
-                                <Grid item xs={12}>
+                                
                                 <div className='scoreA'>
                                     <div className={game.score_a > game.score_b ? 'win' : 'loss'}>
                                     <div className='myScore-title'>
@@ -59,7 +59,7 @@ function GameItem({ game }) {
                                         <h2>{game.score_b}</h2></div>
                                     </div>
 
-                                    <div className='courtLocation'>Court Location : {game.location}</div>
+                                    {/* <div className='courtLocation'>Court Location : {game.location}</div> */}
 
                                     <div>{game.partner ?
                                         <div>My Partner: {game.partner}</div> : null}
@@ -78,11 +78,10 @@ function GameItem({ game }) {
                                         variant="contained" color="secondary" size="small"
                                         onClick={() => seeDetails(game)}>See Details</Button>
                                     </div>
-                                </Grid>
-                            </Grid>
+                            
                         </div>
                     </Paper>
-                </Box>
+               
             </Grid>
         </Container>
     )

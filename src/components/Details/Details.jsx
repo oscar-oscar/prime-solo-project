@@ -5,6 +5,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams, Link } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
+import '../GameItem/GameItem.css';
+import Paper from '@mui/material/Paper';
+import Box from '@mui/material/Box';
 
 function Details() {
     console.log('in Details comp');
@@ -40,7 +43,10 @@ function Details() {
 
     return (
         <div>
-            <h2>DETAILS COMP</h2>
+         <Box>
+         <Paper className='details-block' sx={{  padding: 2}} >
+            <div className='details-title'>Game Details</div>
+
             <h3>Date Logged: {formatDate(gameDetails.date)} </h3>
             <h3>My Score: {gameDetails.score_a}</h3>
             <h3>Opponent Score: {gameDetails.score_b}</h3>
@@ -54,6 +60,8 @@ function Details() {
                 <Button sx={{ padding: 1, width: 1 }} color="primary" variant="contained" onClick={() => history.push(`/edit/${gameDetails.id}`)}>Edit</Button>
                 <Button sx={{ padding: 1, width: 1 }} color="error" variant="contained" onClick={() => deleteGame(gameDetails.id)}>Delete This Game</Button>
             </Stack>
+        </Paper>
+        </Box>
         </div>
 
     )

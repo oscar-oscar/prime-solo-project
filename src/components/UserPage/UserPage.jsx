@@ -1,9 +1,12 @@
 import React from 'react';
 import LogOutButton from '../LogOutButton/LogOutButton';
-
-import { useDispatch, useSelector ,} from 'react-redux';
+import { useDispatch, useSelector, } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import Ball from '../images/wiffleball.png'
+import Ball from '../images/wiffleball.png';
+import './UserPage.css';
+import Paper from '@mui/material/Paper';
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
 
 
 
@@ -15,42 +18,63 @@ function UserPage() {
   const gameList = useSelector(store => store.gameList);
   const history = useHistory();
 
-  // const getGames = () => {
-  //     //replacing with game.saga.js
-  //     dispatch({ type: 'FETCH_GAME_LIST' });
-
-  // }//end of getGames
-
-  // useEffect(() => {
-  //     getGames();
-  // }, []);
-
-
   return (
-    <div className="container">
-      <h1>Welcome, {user.username}!</h1>
-    <div className='tap-promt'>
-      <h1>Tap to see Game History! </h1><img src = {Ball} className="ball"  onClick={() => history.push('/dashboard')} />
-     </div>
+    <Container>
+      <div className="container">
 
-      <h2>Record to Date :
-      <div className='record'>
-                Wins :{gameList.filter(game => game.score_a > game.score_b).length} <br />
-                Losses: {gameList.filter(game => game.score_a < game.score_b).length}
+        <h1 className='welcome'>Welcome, {user.username}!</h1>
+
+        <Box>
+          <Paper sx={{ minWidth: 275, margin: 1 }} className="ball"
+            onClick={() => history.push('/dashboard')}  >
+            <img src={Ball} width="100" height="100"
+              onClick={() => history.push('/dashboard')} />
+
+            <h4 className='tap'>Tap for Game History</h4>
+
+          </Paper>
+        </Box>
+
+        <Box>
+          <Paper className='user-record-paper' >
+            <div className='user-record'>
+              <h3>Current Record </h3>
+              <h3 className="user-record-w">Wins: {gameList.filter(game => game.score_a > game.score_b).length}</h3>
+              <h3 className='user-divider'>|</h3>
+              <h3 className="user-record-l">Losses: {gameList.filter(game => game.score_a < game.score_b).length}</h3>
+              <h2 className='skill-level'>Skill Level : 2.5</h2>
             </div>
-      </h2>
-      <div>
-                {gameList.map(game => {
-                    return (
-                         < div key={game.id}
-                         game={game} />
-                         
-                    )
-                })}
+          </Paper>
+        </Box>
+
+        <Box>
+          <Paper sx={{ minWidth: 275, margin: 1 }}>
+            <div className='user-matches'>
+              <h3>Upcoming Matches </h3>
+              <ul>
+                <li>
+                  No upcoming matches
+                </li>
+              </ul>
             </div>
-      {/* <p>Your ID is: {user.id}</p> */}
-      {/* <LogOutButton className="btn" /> */}
-    </div>
+
+          </Paper>
+        </Box>
+
+
+        <div>
+          {gameList.map(game => {
+            return (
+              < div key={game.id}
+                game={game} />
+
+            )
+          })}
+        </div>
+        {/* <p>Your ID is: {user.id}</p> */}
+        {/* <LogOutButton className="btn" /> */}
+      </div>
+    </Container>
   );
 }
 

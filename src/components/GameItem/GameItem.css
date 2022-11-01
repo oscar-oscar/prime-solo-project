@@ -2,39 +2,38 @@
     position: relative;
     display: flex;
     
-   
-    
 }
+
 .scoreA{
     display: inline-block;
-    padding-right: 32px;
+    
     padding-left: 32px;
 }
 
 .scoreB{
     display: inline-block;
+    padding-left: 32px;
     
 }
 
-.myScore-h1,.myScore-title{
-    margin: auto;
-}
-
-
 .myScore-title, .myScore-h1{
-    color: red;
     display: block;
+    align-items: center;
 }
 
 .opponentScore-title, .oppScore-h1{
     display: block;
     font-weight: 700;
+    align-items: center;
+    
 }
 
 .courtLocation{
     display: block;
     padding-left: 32px;
-    max-width: fit-content;
+    
+    max-width: 200px;
+   
 }
 
 
@@ -56,4 +55,42 @@
 }
 
 
-  
+.win{
+    font-size:1.5em;
+    font-family : 'Silkscreen', 'Courier New', Courier, monospace;
+    color: #4db6ac;
+}
+
+.loss{
+    font-size:1.5em;
+    font-family : 'Silkscreen', 'Courier New', Courier, monospace;
+    color: #bf360c;
+
+}
+
+.record{
+    font-size: 1em;
+    text-align: center;
+    word-spacing: 10px;
+}
+
+.record-w{
+    color: #4db6ac;
+    display: inline-block;
+    padding-right: 10px;
+}
+
+.record-l{
+    color: #bf360c;
+    display: inline-block;
+    padding-left: 10px;
+}
+
+.divider{
+    color: #424242;
+    display: inline-block;
+}
+
+h3{
+   color: #424242;
+}

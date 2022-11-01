@@ -1,0 +1,69 @@
+.ball{
+    position: relative;
+    display: inline-flex;
+    padding: 10px;
+    padding-left: 10px;
+    align-self: center;
+}
+
+.tap{
+    color:#424242;
+    display: inline-block;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    align-self: center;
+}
+
+.user-record{
+    font-size: 1em;
+    text-align: center;
+    word-spacing: 10px;
+    padding: 5px;
+    margin: 0px;
+}
+
+.user-record-paper{
+    position: relative;
+}
+
+.user-record-w{
+    color: #4db6ac;
+    display: inline-block;
+    padding-right: 10px;
+    font-size: 1.5em;
+   
+}
+
+.user-record-l{
+    color: #bf360c;
+    display: inline-block;
+    padding-left: 10px;
+    font-size: 1.5em;
+    
+}
+
+.user-divider{
+    color:#424242;
+    display: inline-block;
+    font-size: 1.5em;
+}
+
+.user-matches{
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    
+
+}
+
+.skill-level{
+    padding-left:10px;
+    padding-right: 10px;
+    color:#424242;
+}
+
+.welcome{
+    color:#424242;
+}
+

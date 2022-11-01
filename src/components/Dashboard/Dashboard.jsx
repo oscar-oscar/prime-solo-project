@@ -8,8 +8,10 @@ import Grid2 from '@mui/material/Unstable_Grid2';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
-import './Dashboard.css';
 import GameItem from '../GameItem/GameItem';
+import '../GameItem/GameItem.css';
+import Paper from '@mui/material/Paper';
+import Box from '@mui/material/Box';
 
 
 //this is the main page of the app
@@ -40,22 +42,29 @@ function Dashboard() {
             </div>
 
             <div><Button style={{ margin: 'auto', display: "flex" }}
-                color="primary" variant="contained" 
+                color="primary" variant="contained"
                 onClick={() => history.push('/add')}
                 className="button">+ Add New Game</Button>
             </div>
-
-            <div className='record'>
-                {gameList.filter(game => game.score_a > game.score_b).length}
-                {gameList.filter(game => game.score_a < game.score_b).length}
-            </div>
+            <Box>
+                <Paper className='record-paper' sx={{  padding: 1 }} >
+                   
+                    <div className='record'>
+                     <h3>MY RECORD </h3>
+                        <h3 className="record-w">Wins: {gameList.filter(game => game.score_a > game.score_b).length}</h3> 
+                        <h3 className='divider'>|</h3>
+                        <h3 className="record-l">Losses: {gameList.filter(game => game.score_a < game.score_b).length}</h3>
+                    </div>
+                    
+                </Paper>
+            </Box>
 
             <ul>
                 {gameList.map(game => {
                     return (
-                         <GameItem 
-                         key={game.id}
-                         game={game} />
+                        <GameItem
+                            key={game.id}
+                            game={game} />
                     )
                 })}
             </ul>

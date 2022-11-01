@@ -44,6 +44,8 @@ router.delete('/:id', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
+    console.log(req.params);
+    console.log(req.body);
     
     const queryText = `UPDATE "game" SET "score_a" = $1, "score_b" = $2, "location"= $3,
                       "partner" = $4, "opponent_1" = $5, "opponent_2" = $6, "notes" = $7

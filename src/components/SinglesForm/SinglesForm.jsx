@@ -43,7 +43,7 @@ function SinglesForm({gameId, gameDetails}) {
                         opponent_1: opponentOneName,
                         location: courtlocation,
                         notes: notes, 
-                        id }, history }); //passing history into saga 
+                        id:gameId }, history }); //passing history into saga 
 
         } else{//add game
             dispatch({

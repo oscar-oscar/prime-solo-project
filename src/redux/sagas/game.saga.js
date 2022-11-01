@@ -50,12 +50,13 @@ function* addSinglesGame(action){
 }
 
 function* editSinglesGame(action){
+    console.log('in editSinglesGame')
     try{// action.payload.id = id passed in our dispatch payload in SinglesForm comp
         //action.payload = optional put req data (all other properties passed)
         yield axios.put(`/details/${action.payload.id}`, action.payload); 
         console.log('in PUT edit Singles Game')
         if (action.history){//fail safe : remember this on group projects
-            action.history.goBack();  //removes edit page from history and avoids going back into edit form. Best UX practice
+            action.history.push(`/details/${action.payload.id}`);  //removes edit page from history and avoids going back into edit form. Best UX practice
         }
     } catch(error){
         console.log(error, 'error in editSinglesGame')

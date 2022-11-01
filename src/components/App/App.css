@@ -31,13 +31,16 @@ Button
 
 .btn {
   display: inline-block;
+  width: 100px;
+  margin-top: 50px;
+  margin-left: 0px;
   padding: 10px 20px;
-  border-width: 1px 1px 3px;
-  border-radius: 2px;
-  background-color: #92D1EA;
-  color: #f8f8f8;
+  border-radius: 1px;
+  background-color: #00b8ab;
+  color: #fffde7;
   font-size: 1.1rem;
   cursor: pointer;
+  align-items: center;
 }
 
 .btn_sizeMin {
@@ -96,26 +99,34 @@ Alert
 Form Treatment
 -------------------------------------------------------------------------------- */
 
-.formPanel {
-  box-sizing: border-box;
-  width: 400px;
-  max-width: 100%;
-  padding: 25px;
-  margin: 0 auto 20px;
-  border-radius: 3px;
-  box-shadow: 0 1px 2px rgb(0, 0, 0, 0.4);
-}
 
 input {
   margin: 5px;
   margin-bottom: 10px;
 }
 
-.page-title {
+
+.game-form, .formPanel{
+  padding: 10px;
+  margin : 20px;
+  flex-wrap: wrap;
+}
+
+.page-title{
   font-family: 'Silkscreen', 'Courier New', Courier, monospace;
   text-align: center;
   font-size: 1em;
   font-weight: 700;
+  color: #fffde7;
   background-color: #4db6ac;
   padding: 0.5px;
+
 }
+
+.match-type-title{
+  font-family: 'Rubik', sans-serif;
+  font-size: 1em;
+  font-weight: 600;
+  padding: 20px;
+  margin-left: 20px;}
+

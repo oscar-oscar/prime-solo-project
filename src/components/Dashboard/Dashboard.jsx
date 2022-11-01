@@ -44,18 +44,18 @@ function Dashboard() {
             <div><Button style={{ margin: 'auto', display: "flex" }}
                 color="primary" variant="contained"
                 onClick={() => history.push('/add')}
-                className="button">+ Add New Game</Button>
+                className="addGamebutton">+ Add New Game</Button>
             </div>
             <Box>
                 <Paper className='record-paper' sx={{  padding: 1 }} >
                    
                     <div className='record'>
-                     <h3>MY RECORD </h3>
+                     <h3 className='my-record-dash'>MY RECORD </h3>
                         <h3 className="record-w">Wins: {gameList.filter(game => game.score_a > game.score_b).length}</h3> 
                         <h3 className='divider'>|</h3>
                         <h3 className="record-l">Losses: {gameList.filter(game => game.score_a < game.score_b).length}</h3>
                     </div>
-                    
+
                 </Paper>
             </Box>
 

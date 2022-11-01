@@ -33,7 +33,7 @@ function GameItem({ game }) {
         <Container maxWidth="sm">
             <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
                 <Box className='box' sx={{ width: '100%' }} >
-                    <Paper className='paper' sx={{ minWidth: 275, margin: 1 }}>
+                    <Paper className='paper' elevation={3} sx={{ minWidth: 275, margin: 1 }}>
 
                         <div key={game.id}>
 
@@ -42,22 +42,21 @@ function GameItem({ game }) {
                                 <br />
 
                                 <Grid item xs={12}>
-                                    <div className='scoreA'>
-                                        <div className='myScore-title'>
-                                            <h2>{user.username}</h2>
-                                        </div>
-
-                                        <div className={game.score_a > game.score_b ? 'win' : 'loss'}>
-                                            <h1>{game.score_a}</h1>
-                                        </div>
+                                <div className='scoreA'>
+                                    <div className={game.score_a > game.score_b ? 'win' : 'loss'}>
+                                    <div className='myScore-title'>
+                                        <h3>{user.username}</h3>
+                                    </div>
+                                        <h2>{game.score_a}</h2>
+                                    </div>
                                     </div>
 
                                     <div className='scoreB'>
-                                        <div className='opponentScore-title'>
-                                            <h2>{game.opponent_1}</h2>
-                                        </div>
                                     <div className={game.score_b > game.score_a ? 'win' : 'loss'}>
-                                            <h1>{game.score_b}</h1></div>
+                                    <div className='opponentScore-title'>
+                                        <h3>{game.opponent_1}</h3>
+                                     </div>
+                                        <h2>{game.score_b}</h2></div>
                                     </div>
 
                                     <div className='courtLocation'>Court Location : {game.location}</div>
@@ -70,6 +69,8 @@ function GameItem({ game }) {
                                     <div>{game.opponent_2 ?
                                         <div> and {game.opponent_2} </div> : null}
                                     </div>
+
+                                    <div className='notes'>{game.notes}</div>
 
                                     <br />
 

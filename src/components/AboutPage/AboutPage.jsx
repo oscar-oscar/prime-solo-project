@@ -22,10 +22,11 @@ function AboutPage() {
           <li> Lucid</li>
           <h2> Future Additions </h2>
           <li> User to user interaction</li>
-            <p> Including: messaging, rematach <br />
-              requests and match creation</p>
-          <li>Match play to replace single <br />
-             game logging</li>
+            <p> Including: searchable users and messaging </p><br />
+          <li>Match play in addition to single <br />
+             game logging</li><br />
+           <li> Implement Google Places</li><br />
+           <li> Live scoring </li>
 
              <h2>Acknowledgments</h2>
              <li>Prime Academy</li>
